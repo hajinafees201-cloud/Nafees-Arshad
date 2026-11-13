@@ -119,6 +119,9 @@ Phone / WhatsApp     : ${COMPANY_INFO.whatsapp}
               <img 
                 src={product.imageUrl} 
                 alt={product.name}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80';
+                }}
                 className="w-full h-full object-cover" 
               />
             </div>

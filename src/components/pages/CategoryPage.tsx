@@ -14,10 +14,17 @@ import {
   Info,
   ChevronDown,
   Sparkles,
-  Scale
+  Scale,
+  Eye,
+  FileText,
+  BookOpen
 } from 'lucide-react';
 import { Category, ProductVariant, PageView } from '../../types';
 import { CATEGORIES } from '../../data/catalog';
+import { PinkSaltCatalogModal } from '../catalog/PinkSaltCatalogModal';
+import { SurgicalCatalogModal } from '../catalog/SurgicalCatalogModal';
+import { downloadPinkSaltPdfCatalog } from '../../utils/generatePinkSaltPdf';
+import { downloadSurgicalPdfCatalog } from '../../utils/generateSurgicalPdf';
 
 interface CategoryPageProps {
   categorySlug: string;
@@ -36,10 +43,44 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
 }) => {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('all');
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number | null>(0);
+  const [containerSizeType, setContainerSizeType] = useState<'20ft' | '40ft'>('20ft');
   const [containerCalcCount, setContainerCalcCount] = useState<number>(2);
+  const [isPinkSaltCatalogOpen, setIsPinkSaltCatalogOpen] = useState(false);
+  const [isSurgicalCatalogOpen, setIsSurgicalCatalogOpen] = useState(false);
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+
+  const handleDownloadCatalog = (type: 'salt' | 'surgical') => {
+    setIsDownloadingPdf(true);
+    try {
+      if (type === 'salt') {
+        downloadPinkSaltPdfCatalog();
+      } else {
+        downloadSurgicalPdfCatalog();
+      }
+    } catch (err) {
+      console.error('Catalog download error:', err);
+    } finally {
+      setTimeout(() => setIsDownloadingPdf(false), 800);
+    }
+  };
 
   const category = CATEGORIES.find((c) => c.slug === categorySlug) || CATEGORIES[0];
   const isActiveCategory = category.status === 'active';
+
+  React.useEffect(() => {
+    setSelectedSubcategory('all');
+  }, [categorySlug]);
+
+  const uniqueSubcategories = React.useMemo(() => {
+    return Array.from(new Set(category.variants.map((v) => v.subcategory))).filter(Boolean);
+  }, [category.variants]);
+
+  const formatSubcategoryLabel = (sub: string) => {
+    return sub
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+  };
 
   const filteredVariants = category.variants.filter((v) => {
     if (selectedSubcategory === 'all') return true;
@@ -54,8 +95,12 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         <div className="absolute inset-0 opacity-40 mix-blend-luminosity">
           <img 
             src={category.heroImage} 
-            alt={category.title}
+            alt={`${category.title} - Certified Export Division Utility Home Exports`}
+            width="1200"
+            height="500"
             className="w-full h-full object-cover object-center" 
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/60" />
@@ -109,12 +154,59 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
               </div>
             </div>
 
-            <div className="pt-3 flex flex-wrap gap-3">
+            {/* Primary Action Buttons: View Catalog & Download Catalog */}
+            <div className="pt-3 flex flex-wrap items-center gap-3">
+              {categorySlug === 'himalayan-pink-salt' && (
+                <>
+                  <button
+                    onClick={() => setIsPinkSaltCatalogOpen(true)}
+                    className="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-extrabold text-xs shadow-lg hover:shadow-orange-500/30 transition-all flex items-center gap-2 cursor-pointer"
+                    title="Open interactive visual catalog preview"
+                  >
+                    <BookOpen className="w-4 h-4 text-slate-950" />
+                    <span>View Catalog</span>
+                  </button>
+
+                  <button
+                    onClick={() => handleDownloadCatalog('salt')}
+                    disabled={isDownloadingPdf}
+                    className="px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border-2 border-orange-400 text-white font-bold text-xs shadow-md hover:shadow-orange-400/20 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                    title="Download high-resolution official Pink Salt PDF catalog"
+                  >
+                    <Download className="w-4 h-4 text-orange-400" />
+                    <span>{isDownloadingPdf ? 'Generating...' : 'Download Catalog'}</span>
+                  </button>
+                </>
+              )}
+
+              {categorySlug === 'surgical-instruments' && (
+                <>
+                  <button
+                    onClick={() => setIsSurgicalCatalogOpen(true)}
+                    className="px-5 py-3 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-xs shadow-lg hover:shadow-sky-400/30 transition-all flex items-center gap-2 cursor-pointer"
+                    title="Open interactive visual surgical catalog preview"
+                  >
+                    <BookOpen className="w-4 h-4 text-slate-950" />
+                    <span>View Catalog</span>
+                  </button>
+
+                  <button
+                    onClick={() => handleDownloadCatalog('surgical')}
+                    disabled={isDownloadingPdf}
+                    className="px-5 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border-2 border-sky-400 text-white font-bold text-xs shadow-md hover:shadow-sky-400/20 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                    title="Download high-resolution official Surgical & Dental PDF catalog"
+                  >
+                    <Download className="w-4 h-4 text-sky-400" />
+                    <span>{isDownloadingPdf ? 'Generating...' : 'Download Catalog'}</span>
+                  </button>
+                </>
+              )}
+
               <button
                 onClick={() => onNavigate('contact')}
-                className="px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                className="px-5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-xs border border-slate-700 transition-all flex items-center gap-1.5 cursor-pointer"
               >
-                <span>Request B2B Quote for {category.title}</span>
+                <span>Request B2B Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -126,7 +218,78 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-16">
         
-        {/* If Active Category with Variants (Himalayan Pink Salt) */}
+        {/* Visual Catalog Feature Card */}
+        {categorySlug === 'himalayan-pink-salt' && (
+          <div className="bg-gradient-to-r from-orange-950 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-orange-800/60 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-900/60 border border-orange-700/80 text-xs font-semibold text-orange-200">
+                <FileText className="w-3.5 h-3.5 text-orange-400" />
+                <span>Official Product Catalog &amp; Technical Dossier (PDF)</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white">
+                Himalayan Pink Salt Product Specifications &amp; Packaging Catalog
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Includes fine/coarse/granule crystals, handcrafted lamps, cooking slabs, Kraft paper window zipper pouches, 25kg PP bags, 1000kg FIBC jumbo bags, and certified chemical COA analysis (98.7% NaCl).
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                onClick={() => setIsPinkSaltCatalogOpen(true)}
+                className="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Eye className="w-4 h-4" />
+                <span>View Catalog</span>
+              </button>
+              <button
+                onClick={() => handleDownloadCatalog('salt')}
+                disabled={isDownloadingPdf}
+                className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-orange-400/80 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                <Download className="w-4 h-4 text-orange-400" />
+                <span>Download Catalog</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {categorySlug === 'surgical-instruments' && (
+          <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-sky-950 text-white rounded-3xl p-6 sm:p-8 border border-sky-800/60 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-900/60 border border-sky-700/80 text-xs font-semibold text-sky-200">
+                <FileText className="w-3.5 h-3.5 text-sky-400" />
+                <span>Official Surgical Catalog &amp; Metallurgy Dossier (PDF)</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white">
+                Surgical &amp; Dental Instruments Full Product Catalog
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Featuring dental extraction sets, hemostats, tissue retractors, gold-ring TC needle holders, dissecting scissors, AISI 420/410/304 metallurgy, and autoclave steam durability standards.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                onClick={() => setIsSurgicalCatalogOpen(true)}
+                className="px-5 py-3 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Eye className="w-4 h-4" />
+                <span>View Catalog</span>
+              </button>
+              <button
+                onClick={() => handleDownloadCatalog('surgical')}
+                disabled={isDownloadingPdf}
+                className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-sky-400/80 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                <Download className="w-4 h-4 text-sky-400" />
+                <span>Download Catalog</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* If Active Category with Variants (Himalayan Pink Salt / Surgical Instruments) */}
         {category.variants.length > 0 ? (
           <div className="space-y-8">
             
@@ -152,46 +315,19 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
                 >
                   All ({category.variants.length})
                 </button>
-                <button
-                  onClick={() => setSelectedSubcategory('edible')}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                    selectedSubcategory === 'edible'
-                      ? 'bg-slate-900 text-white shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  Edible Food Grade
-                </button>
-                <button
-                  onClick={() => setSelectedSubcategory('decor')}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                    selectedSubcategory === 'decor'
-                      ? 'bg-slate-900 text-white shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  Salt Lamps &amp; Decor
-                </button>
-                <button
-                  onClick={() => setSelectedSubcategory('animal')}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                    selectedSubcategory === 'animal'
-                      ? 'bg-slate-900 text-white shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  Livestock Salt Licks
-                </button>
-                <button
-                  onClick={() => setSelectedSubcategory('spa')}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                    selectedSubcategory === 'spa'
-                      ? 'bg-slate-900 text-white shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  Spa &amp; Bath Crystals
-                </button>
+                {uniqueSubcategories.map((sub) => (
+                  <button
+                    key={sub}
+                    onClick={() => setSelectedSubcategory(sub)}
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                      selectedSubcategory === sub
+                        ? 'bg-slate-900 text-white shadow-2xs'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {formatSubcategoryLabel(sub)}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -207,7 +343,13 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
                     <div className="relative h-64 overflow-hidden bg-slate-100">
                       <img
                         src={variant.imageUrl}
-                        alt={variant.name}
+                        alt={`${variant.name} (HS: ${variant.hsCode}) - Export Specification - Utility Home Exports`}
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80';
+                        }}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
@@ -401,65 +543,152 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 space-y-3">
+            <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-400">
                 <Scale className="w-4 h-4" />
                 <span>Maritime Logistics Estimator</span>
               </div>
-              <h3 className="text-2xl font-bold font-['Space_Grotesk'] text-white">
-                Calculate Container Payload &amp; Packaging Breakdown
+              <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white">
+                Container Payload &amp; Packaging Breakdown
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Estimate total metric tonnage, pallet counts, and 25kg bag quantities for your scheduled shipment departing Port Qasim or Karachi Port.
+                Configure both 20ft Standard FCL and 40ft High-Cube / Reefer shipments with real-time payload, bag counts, and pallet estimates departing Port Qasim or Karachi Port.
               </p>
 
-              <div className="flex items-center gap-3 pt-2">
-                <span className="text-xs text-slate-400">Containers (20ft FCL):</span>
-                {[1, 2, 5, 10].map((num) => (
+              {/* 1. Container Size Selector: 20ft vs 40ft FCL */}
+              <div className="space-y-1.5 pt-1">
+                <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block">
+                  Select Container Dimension &amp; Mode:
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-lg">
                   <button
-                    key={num}
-                    onClick={() => setContainerCalcCount(num)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                      containerCalcCount === num
-                        ? 'bg-orange-600 text-white shadow-xs'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    type="button"
+                    onClick={() => setContainerSizeType('20ft')}
+                    className={`px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left flex items-center justify-between cursor-pointer border ${
+                      containerSizeType === '20ft'
+                        ? 'bg-orange-600 text-white border-orange-500 shadow-sm'
+                        : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700/80'
                     }`}
                   >
-                    {num} Container{num > 1 ? 's' : ''}
+                    <div>
+                      <div className="font-bold">20ft Standard FCL</div>
+                      <div className="text-[10px] opacity-80 font-normal">Dry Bulk / Salt (25–27 MT)</div>
+                    </div>
+                    {containerSizeType === '20ft' && (
+                      <span className="w-2 h-2 rounded-full bg-white shrink-0 ml-2" />
+                    )}
                   </button>
-                ))}
+
+                  <button
+                    type="button"
+                    onClick={() => setContainerSizeType('40ft')}
+                    className={`px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left flex items-center justify-between cursor-pointer border ${
+                      containerSizeType === '40ft'
+                        ? 'bg-orange-600 text-white border-orange-500 shadow-sm'
+                        : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700/80'
+                    }`}
+                  >
+                    <div>
+                      <div className="font-bold">40ft High Cube / Reefer</div>
+                      <div className="text-[10px] opacity-80 font-normal">Produce / Volumetric (26–28 MT)</div>
+                    </div>
+                    {containerSizeType === '40ft' && (
+                      <span className="w-2 h-2 rounded-full bg-white shrink-0 ml-2" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* 2. Container Quantity Selector */}
+              <div className="space-y-1.5 pt-1">
+                <div className="flex items-center justify-between max-w-lg">
+                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                    Number of {containerSizeType} Containers:
+                  </span>
+                  <span className="text-xs font-bold text-orange-400">
+                    {containerCalcCount} x {containerSizeType} FCL
+                  </span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 max-w-lg">
+                  {[1, 2, 5, 10].map((num) => (
+                    <button
+                      key={num}
+                      type="button"
+                      onClick={() => setContainerCalcCount(num)}
+                      className={`py-2 px-1 rounded-xl text-xs font-bold transition-all text-center cursor-pointer border ${
+                        containerCalcCount === num
+                          ? 'bg-orange-600 text-white border-orange-500 shadow-sm ring-2 ring-orange-500/20'
+                          : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
+                      }`}
+                    >
+                      {num} {num === 1 ? 'FCL' : 'FCLs'}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-slate-950/80 p-5 rounded-xl border border-slate-800 text-xs space-y-3">
-              <div className="flex justify-between border-b border-slate-800 pb-2">
+            {/* 3. Dynamic Payload & Packaging Output Card */}
+            <div className="lg:col-span-5 bg-slate-950/90 p-5 sm:p-6 rounded-2xl border border-slate-800 text-xs space-y-3.5 shadow-xl">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                <span className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider">
+                  Configured Shipment
+                </span>
+                <span className="font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2 py-0.5 rounded text-[11px]">
+                  {containerCalcCount} x {containerSizeType} FCL
+                </span>
+              </div>
+
+              <div className="flex justify-between border-b border-slate-800/60 pb-2.5">
                 <span className="text-slate-400">Total Net Payload:</span>
                 <span className="font-bold text-orange-400 text-sm">
-                  {containerCalcCount * 25} to {containerCalcCount * 27} Metric Tons (MT)
+                  {containerSizeType === '20ft'
+                    ? `${containerCalcCount * 25} to ${containerCalcCount * 27} MT`
+                    : `${containerCalcCount * 26} to ${containerCalcCount * 28} MT`}
                 </span>
               </div>
-              <div className="flex justify-between border-b border-slate-800 pb-2">
-                <span className="text-slate-400">25kg PP Export Sacks:</span>
+
+              <div className="flex justify-between border-b border-slate-800/60 pb-2.5">
+                <span className="text-slate-400">
+                  {containerSizeType === '20ft' ? '25kg PP Export Sacks:' : 'Package / Unit Count:'}
+                </span>
                 <span className="font-semibold text-white">
-                  {(containerCalcCount * 25 * 1000) / 25} Bags
+                  {containerSizeType === '20ft'
+                    ? `${(containerCalcCount * 1000).toLocaleString()} to ${(containerCalcCount * 1080).toLocaleString()} Bags`
+                    : `${(containerCalcCount * 1040).toLocaleString()} Bags / 4,500+ Boxed`}
                 </span>
               </div>
-              <div className="flex justify-between border-b border-slate-800 pb-2">
-                <span className="text-slate-400">Standard Euro Pallets (ISPM-15):</span>
+
+              <div className="flex justify-between border-b border-slate-800/60 pb-2.5">
+                <span className="text-slate-400">ISPM-15 Euro Pallets:</span>
                 <span className="font-semibold text-white">
-                  {containerCalcCount * 20} to {containerCalcCount * 24} Pallets
+                  {containerSizeType === '20ft'
+                    ? `${containerCalcCount * 20} to ${containerCalcCount * 24} Pallets`
+                    : `${containerCalcCount * 24} to ${containerCalcCount * 28} Pallets`}
                 </span>
               </div>
+
+              <div className="flex justify-between border-b border-slate-800/60 pb-2.5">
+                <span className="text-slate-400">Cubic Capacity (Est):</span>
+                <span className="font-semibold text-slate-300">
+                  {containerSizeType === '20ft'
+                    ? `${containerCalcCount * 33} CBM`
+                    : `${containerCalcCount * 76} CBM (High Cube)`}
+                </span>
+              </div>
+
               <div className="flex justify-between">
-                <span className="text-slate-400">Port Turnaround:</span>
-                <span className="font-semibold text-emerald-400">48 Hours from Factory Depot</span>
+                <span className="text-slate-400">Depot to Port Transit:</span>
+                <span className="font-semibold text-emerald-400">48h to Port Qasim / Karachi</span>
               </div>
 
               <button
+                type="button"
                 onClick={() => onNavigate('contact')}
-                className="w-full mt-2 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs shadow-xs transition-colors cursor-pointer"
+                className="w-full mt-3 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                Inquire on This Volume ({containerCalcCount * 25} MT)
+                <span>Request Quotation for {containerCalcCount} x {containerSizeType} FCL</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
@@ -531,6 +760,26 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         </div>
 
       </div>
+
+      {/* Visual Catalog Modals */}
+      <PinkSaltCatalogModal
+        isOpen={isPinkSaltCatalogOpen}
+        onClose={() => setIsPinkSaltCatalogOpen(false)}
+        onInquireDirectly={(prodName) => {
+          const matched = category.variants.find((v) => v.name === prodName) || category.variants[0];
+          if (matched) onInquireDirectly(matched);
+        }}
+      />
+
+      <SurgicalCatalogModal
+        isOpen={isSurgicalCatalogOpen}
+        onClose={() => setIsSurgicalCatalogOpen(false)}
+        onInquireDirectly={(prodName) => {
+          const surgCat = CATEGORIES.find((c) => c.slug === 'surgical-instruments') || category;
+          const matched = surgCat.variants.find((v) => v.name === prodName) || surgCat.variants[0];
+          if (matched) onInquireDirectly(matched);
+        }}
+      />
 
     </div>
   );

@@ -3,170 +3,251 @@ import { VegetableProduct } from '../types';
 export const VEGETABLE_PRODUCTS: VegetableProduct[] = [
   {
     id: 'veg-garlic-grade-a',
-    name: 'Fresh Whole White Garlic Bulbs (Grade A)',
-    botanicalName: 'Allium sativum',
-    variety: 'NARC-G1 Giant White Garlic (55mm–75mm+)',
+    name: 'Fresh Whole White Garlic (Grade A)',
+    botanicalName: 'Allium sativum (لہسن)',
+    variety: 'NARC-G1 Giant White Garlic & Local Desi White',
     category: 'Bulb Vegetables',
     hsCode: '0703.20.00',
     origin: 'Punjab & Northern Agricultural Valleys, Pakistan',
-    seasonality: 'Round the Year (Controlled Cold Ventilation)',
+    seasonality: 'Round the Year (Controlled Cold Atmosphere)',
     packagingOptions: [
-      '10kg & 20kg White/Red Heavy-Duty Leno Mesh Bags',
+      '5kg, 10kg, 20kg Heavy-Duty Red/White Leno Mesh Sacks',
       '10kg Ventilated Corrugated Master Cartons with dividers',
       'Retail Net Packs (3 pcs / 5 pcs garlic with custom barcode tags)'
     ],
-    shelfLife: '120 to 180 Days at -1°C to 0°C (65% RH)',
+    shelfLife: '6 to 9 Months at -1°C to 0°C (65% RH)',
     storageTemp: '-1°C to 0°C / 65% RH (Dry & Ventilated Reefer)',
-    shippingMode: '40ft Reefer Ocean Container (26 MT) or 20ft FCL (12 MT)',
-    moq: '1 x 20ft FCL (Approx. 12 Metric Tons) / 1 x 40ft FCL (26 MT)',
-    description: 'Pristine export-grade whole white garlic bulbs featuring tight papery white skins, plump aromatic cloves, and clean trimmed roots. Naturally sun-cured, graded by caliber, and certified rot-free.',
+    shippingMode: '40ft High Cube Reefer (26–28 MT) / 20ft Reefer (12 MT)',
+    moq: '1 x 20ft FCL (12 Metric Tons) / 1 x 40ft FCL (26 MT)',
+    description: 'Pristine export-grade whole white garlic bulbs featuring tight papery white skins, plump aromatic cloves, and clean trimmed roots. Naturally sun-cured, graded by millimeter caliber, and certified rot-free.',
     keySpecs: [
-      { label: 'Caliber / Size', value: '55mm+, 60mm+, 65mm+, 75mm+ (Grade A Jumbo)' },
-      { label: 'Clove Structure', value: '6 to 10 massive dense cloves per bulb' },
-      { label: 'Moisture Curing', value: 'Sun-cured tight necks, < 65% pulp moisture' },
-      { label: 'Phytosanitary', value: '100% DPP inspected, sprout & mite free' }
+      { label: 'Caliber / Size', value: '50mm+, 55mm+, 60mm+, 65mm–75mm+ (Grade A Jumbo)' },
+      { label: 'Drying & Curing', value: 'Sun-cured & kiln-dried tight necks, pulp moisture < 65%' },
+      { label: 'Clove Structure', value: '6 to 10 massive dense aromatic cloves per bulb' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port (PKKHI) / CIF Destination Ports' }
     ],
     imageUrl: '/images/garlic_bulbs_export.jpg'
   },
   {
     id: 'veg-ginger-rhizomes',
-    name: 'Fresh Ginger Rhizomes (Global Standards)',
-    botanicalName: 'Zingiber officinale',
-    variety: 'Bold Fresh Agricultural Ginger (Washed / Export Grade)',
+    name: 'Fresh Ginger Rhizomes (Export Grade)',
+    botanicalName: 'Zingiber officinale (ادرک)',
+    variety: 'Bold Fresh Agricultural Ginger (Washed & Unwashed)',
     category: 'Rhizomes & Roots',
     hsCode: '0910.11.00',
     origin: 'River Valley Agro Belts, Pakistan',
-    seasonality: 'October to April (Peak Fresh Harvest)',
+    seasonality: 'October to May (Peak Fresh Harvest)',
     packagingOptions: [
-      '10kg & 13.6kg (30 lbs) Heavy-Duty Air-Cooled Mesh Sacks',
-      '10kg Corrugated Master Cartons with ventilation vents',
-      'Air Freight Palletized ISPM-15 Crates'
+      '10kg & 13.6kg (30 lbs) Heavy-Duty Air-Cooled Plastic Crates',
+      '10kg Corrugated Master Cartons with dual ventilation slots',
+      'ISPM-15 Heat-Treated Wooden Export Crates for air & sea pallets'
     ],
     shelfLife: '60 to 90 Days under proper temperature (+12°C)',
     storageTemp: '+12°C to +14°C / 85% RH (Non-chilling Reefer)',
-    shippingMode: '40ft High Cube Reefer (+12°C) or Commercial Air Cargo',
+    shippingMode: '40ft High Cube Reefer (+12°C, 24–26 MT) or Commercial Air Cargo',
     moq: '5,000 kg (Commercial Air Cargo) or 1 x 40ft FCL Reefer (24 MT)',
-    description: 'High-aroma, fiber-balanced fresh ginger rhizomes washed thoroughly to remove field soil. Selected for thick fleshy hands, natural golden sheen, plump joints, and high gingerol essential oil potency.',
+    description: 'High-aroma, fiber-balanced fresh ginger rhizomes available thoroughly hydro-washed or in natural unwashed farm state. Selected for thick fleshy hands, natural golden sheen, plump joints, and high gingerol essential oil potency.',
     keySpecs: [
-      { label: 'Rhizome Hand Size', value: '150g, 200g, 250g+ thick mature hands' },
-      { label: 'Washing State', value: '100% Washed, air-dried, zero surface dirt' },
-      { label: 'Pungency Index', value: 'High gingerol content & spicy aromatic oils' },
-      { label: 'Quality Standard', value: 'Codex Alimentarius & GlobalGAP Compliant' }
+      { label: 'Rhizome Hand Size', value: '150g, 200g, 250g+ thick mature hands & fat fingers' },
+      { label: 'Washing State', value: 'Washed soil-free OR unwashed natural origin' },
+      { label: 'Moisture Control', value: '< 12% moisture variation, zero mildew or decay' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Major Global Seaports' }
     ],
-    imageUrl: '/images/ginger_rhizomes_export.jpg'
+    imageUrl: '/images/fresh_ginger_export.jpg'
   },
   {
-    id: 'veg-onions-potatoes',
-    name: 'Fresh Onions & Potatoes (Export Pack)',
-    botanicalName: 'Allium cepa & Solanum tuberosum',
-    variety: 'Sindh Red / Swat Golden Onions & Mozika / Dutch Potatoes',
-    category: 'Bulb & Tuber Export Packs',
-    hsCode: '0703.10.00 / 0701.90.00',
-    origin: 'Okara, Sahiwal, Gujranwala & Sindh Agricultural Belts',
-    seasonality: 'Round the Year (Multi-crop rotational harvests)',
+    id: 'veg-red-onions',
+    name: 'Premium Red Onions (Export Graded)',
+    botanicalName: 'Allium cepa (لال پیاز)',
+    variety: 'Sindh Red (Nasarpur), Swat Golden Red & Punjab Hybrid',
+    category: 'Bulb Vegetables',
+    hsCode: '0703.10.00',
+    origin: 'Sindh (Nasarpur, Matiari) & Punjab Agricultural Belts, Pakistan',
+    seasonality: 'Round the Year (Rotational Harvests)',
     packagingOptions: [
-      '10kg, 25kg, 50kg Red/Yellow Leno Mesh Sacks',
-      'Heavy-Duty Polypropylene Export Bags with UV stabilizer',
+      '5kg, 10kg, 25kg, 50kg UV-Stabilized Red Leno Mesh Bags',
+      'Heavy-Duty Polypropylene Export Bags with custom tags',
       '1 Ton ISPM-15 Heat-Treated Palletized Bins'
     ],
-    shelfLife: '60 to 120 Days under conditioned storage',
-    storageTemp: 'Onions: 0°C to +4°C | Potatoes: +3°C to +8°C',
-    shippingMode: '40ft High Cube Reefer (+4°C Set Point, 28–30 MT)',
-    moq: '1 x 40ft FCL Reefer Container (Approx. 28–30 Metric Tons)',
-    description: 'Crisp, pungent red and golden onions with firm dry skins paired alongside high-dry-matter washed potatoes. Tailored for maritime container shipping with sprout inhibition and zero weight loss during voyages.',
+    shelfLife: '90 to 120 Days under conditioned cold chain',
+    storageTemp: '0°C to +4°C / 65–70% RH (Dry & Ventilated Reefer)',
+    shippingMode: '40ft High Cube Reefer (+2°C to +4°C, 28–29 MT)',
+    moq: '1 x 40ft FCL Reefer Container (Approx. 1,160 bags x 25kg / 29 MT)',
+    description: 'Crisp, pungent red onions with deep reddish-purple papery skin and dense globe flesh. Graded for uniform caliber with thin dry necks and sprout inhibition for seamless ocean voyages to GCC, Europe, and Asia.',
     keySpecs: [
-      { label: 'Onion Caliber', value: '45–55mm, 55–65mm, 65–85mm (Graded)' },
-      { label: 'Potato Sizes', value: '35–45mm (Baby), 45–55mm (Table), 55–80mm (Jumbo)' },
-      { label: 'Dry Matter', value: '20–24% high solids, low reducing sugars' },
-      { label: 'Container Load', value: '28–30 MT per 40ft High-Cube Reefer' }
+      { label: 'Caliber / Sizes', value: 'Sorted 45mm+, 50mm+, 55mm+, 60mm–85mm (Graded Jumbo)' },
+      { label: 'Curing & Dryness', value: '3–4 layers dry papery wrapper skin, cured necks' },
+      { label: 'Cold-Chain Ready', value: 'Pre-cooled & shipped in ventilated reefer containers' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port (PKKHI) / CIF Global Seaports' }
     ],
-    imageUrl: '/images/onions_potatoes_export.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=1200&q=80'
   },
   {
-    id: 'veg-seasonal-herbs',
-    name: 'Seasonal Vegetables & Herbs',
-    botanicalName: 'Capsicum annuum, Lycopersicon, Coriandrum sativum',
-    variety: 'G4 Hot Chilies, Bell Peppers, Vine Tomatoes & Fresh Herbs',
-    category: 'Horticultural Produce & Fresh Herbs',
-    hsCode: '0709.60.00 / 0702.00.00 / 0709.99.00',
-    origin: 'Gujranwala, Kunri & Punjab Green Belt Farm Hubs',
-    seasonality: 'Year-Round Harvests (Daily Morning Picks)',
+    id: 'veg-potatoes-export',
+    name: 'Export Potatoes (Mozika / Asterix / Lady Rosetta)',
+    botanicalName: 'Solanum tuberosum (برآمدی آلو)',
+    variety: 'Mozika (White), Asterix (Red Skin), Lady Rosetta (Chipping), Santana',
+    category: 'Tubers & Processing Potatoes',
+    hsCode: '0701.90.00',
+    origin: 'Okara, Sahiwal, Jhelum & Chiniot Potato Belt, Punjab, Pakistan',
+    seasonality: 'December to May (Fresh Crop), Year-Round (Cold Stores)',
+    packagingOptions: [
+      '10kg, 25kg, 50kg Heavy-Duty Yellow/Red Polypropylene Mesh Sacks',
+      '10kg & 15kg Corrugated Telescopic Export Master Boxes',
+      '1 Ton Jumbo PP Bulk Bags on wooden pallets'
+    ],
+    shelfLife: '90 to 150 Days under refrigerated storage (+4°C to +8°C)',
+    storageTemp: '+4°C to +8°C / 85–90% RH (Sprout-inhibited cold storage)',
+    shippingMode: '40ft High Cube Reefer (+4°C Set Point, 28–30 MT)',
+    moq: '1 x 40ft FCL Reefer Container (Approx. 28–30 Metric Tons)',
+    description: 'Premier Punjab potatoes cultivated in nutrient-rich alluvial soils. Mozika offers smooth skin for table cooking, Asterix delivers deep red skin and golden flesh, and Lady Rosetta provides certified 22%+ dry-matter for industrial chip processing.',
+    keySpecs: [
+      { label: 'Caliber / Sizes', value: '35–45mm (Baby), 45–55mm (Table), 55–80mm (Processing)' },
+      { label: 'Surface Finish', value: '100% Hydro-washed clean skin OR natural dirt-bound' },
+      { label: 'Dry Matter Content', value: '20% to 24% high solids, low reducing sugars' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Jebel Ali, Dammam, Rotterdam' }
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'veg-chillies-g4-red',
+    name: 'Green Chillies & Red Chilli (High Pungency)',
+    botanicalName: 'Capsicum annuum (ہری اور لال مرچ)',
+    variety: 'G4 Hot Green Chilli, Bullet Chilli & Kunri Long Red Chilli',
+    category: 'Spices & Hot Produce',
+    hsCode: '0709.60.00 (Fresh) / 0904.21.10 (Dried Red)',
+    origin: 'Kunri (Chilli Capital of Asia) & Jhelum Green Corridors, Pakistan',
+    seasonality: 'Round the Year (Multi-cycle open field & tunnel harvests)',
     packagingOptions: [
       '3kg, 4kg, 5kg Ventilated Corrugated Export Master Cartons',
       'Food-Grade Micro-Perforated Punnets (250g / 500g)',
-      'Air Cargo Pallets with Thermal Insulating Foil Jackets'
+      'Air Cargo Thermal Pallet Blankets with dry cooling packs'
     ],
-    shelfLife: '14 to 28 Days under unbroken cold chain (+7°C to +10°C)',
-    storageTemp: '+7°C to +10°C / 90–95% RH (High Humidity Chilled)',
+    shelfLife: '21 to 28 Days under unbroken chilled air chain (+7°C to +10°C)',
+    storageTemp: '+7°C to +10°C / 90–95% RH (High-Humidity Chilled)',
     shippingMode: 'Commercial Air Cargo Flights / Expedited Ocean Reefers',
     moq: '1,000 kg (Commercial Air Cargo) or 1 x 20ft/40ft Reefer',
-    description: 'Harvest-fresh green chilies with intact calyxes, glossy sweet bell peppers, field-ripened tomatoes, and aromatic culinary herbs. Rapid hydro-cooled to lock in field crunch, color, and natural flavor.',
+    description: 'Vibrant, sharp, and highly pungent green and red chillies with glossy unblemished skin and firm flesh. Sourced directly from Kunri and Punjab grower networks for maximum Scoville heat, fresh green calyxes, and spicy aroma.',
     keySpecs: [
-      { label: 'Chili Length', value: '6cm–9cm (G4 Hot) / 4cm–6cm (Bullet Chili)' },
-      { label: 'Stem Freshness', value: '100% Intact green stems and fresh turgid calyx' },
-      { label: 'Pesticide Status', value: 'Codex & EU MRL Compliant, lab certified' },
-      { label: 'Handling Speed', value: 'Packed and pre-cooled within 6 hours of harvest' }
+      { label: 'Chilli Length', value: '6cm–10cm (G4 Hot) / 4cm–6cm (Bullet) / 8cm–12cm (Red)' },
+      { label: 'Pungency Level', value: 'High Scoville Heat (SHU 40,000–75,000+)' },
+      { label: 'Calyx & Stem', value: '100% Intact fresh green stems and crisp turgid calyx' },
+      { label: 'Shipping Terms', value: 'FOB Karachi / Air CFR Gulf & UK Airports / CIF' }
     ],
-    imageUrl: '/images/seasonal_veg_herbs.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'veg-fresh-turnips',
+    name: 'Fresh Turnips (Seasonal Produce)',
+    botanicalName: 'Brassica rapa subsp. rapa (تازہ شلجم)',
+    variety: 'Purple Top White Globe & Tender Sweet Snowball Turnips',
+    category: 'Root Vegetables',
+    hsCode: '0706.90.00',
+    origin: 'Central Punjab Fertile River Basins & Jhelum Agro Hub, Pakistan',
+    seasonality: 'November to March (Winter Season Produce)',
+    packagingOptions: [
+      '5kg & 10kg Ventilated Telescopic Corrugated Master Boxes',
+      '10kg Breathable Mesh Bags with internal protection sheets',
+      'Air Freight Insulated Master Cartons'
+    ],
+    shelfLife: '30 to 45 Days at 0°C to +2°C (95% RH)',
+    storageTemp: '0°C to +2°C / 95% RH (High-humidity chilled environment)',
+    shippingMode: '40ft Reefer Container (24–26 MT) or Daily Air Freight Lots',
+    moq: '2,000 kg (Air Freight) or 1 x 40ft Reefer (24 Metric Tons)',
+    description: 'Crisp, sweet, and succulent winter turnips grown in rich alluvial loam. Carefully selected for bright purple crowns, pristine snow-white base, and tender, non-fibrous edible texture. Hydro-cooled to preserve farm freshness.',
+    keySpecs: [
+      { label: 'Caliber / Sizes', value: '50mm–70mm (Standard Table), 70mm–90mm (Commercial)' },
+      { label: 'Preparation', value: 'Mechanically washed, hydro-cooled, root hairs trimmed' },
+      { label: 'Texture & Pith', value: 'Dense solid white flesh, zero woodiness or spongy core' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Gulf Ports (Dubai, Dammam, Salalah)' }
+    ],
+    imageUrl: '/images/fresh_turnips_export.jpg'
+  },
+  {
+    id: 'veg-fresh-carrots',
+    name: 'Fresh Carrots (Pakistani Sweet Red & Kuroda)',
+    botanicalName: 'Daucus carota subsp. sativus (تازہ گاجر)',
+    variety: 'Deep Lycopene Red Desi Carrots & Kuroda Orange Hybrid',
+    category: 'Root Vegetables',
+    hsCode: '0706.10.00',
+    origin: 'Jhelum, Sahiwal & Sheikhupura Agro Corridors, Punjab, Pakistan',
+    seasonality: 'December to April (Peak Winter Crop)',
+    packagingOptions: [
+      '10kg Transparent Polyethylene (PE) liner inside corrugated cartons',
+      '10kg & 15kg Ventilated Plastic Export Crates',
+      '20kg Jute / Woven mesh bags for regional refrigerated transport'
+    ],
+    shelfLife: '45 to 60 Days under controlled temperature (0°C to +1°C)',
+    storageTemp: '0°C to +1°C / 95–98% RH (High-humidity reefer storage)',
+    shippingMode: '40ft Reefer Container (26–28 Metric Tons)',
+    moq: '1 x 40ft FCL Reefer Container (Approx. 26–28 Metric Tons)',
+    description: 'Renowned Pakistani winter red carrots packed with natural lycopene, vibrant ruby-red color, and exceptional sweetness. Hydro-cooled immediately after harvest to preserve crunchiness for overseas shipment to Gulf and European markets.',
+    keySpecs: [
+      { label: 'Length & Diameter', value: 'Length: 16cm–24cm | Diameter: 25mm–42mm (Straight)' },
+      { label: 'Washing & Polish', value: 'Mechanically washed, polished, tops trimmed, hydro-cooled' },
+      { label: 'Sweetness & Core', value: 'High brix natural sweetness, tender juicy small core' },
+      { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Middle East & GCC Ports' }
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
 export const VEGETABLE_SPECS_TABLE = [
   {
-    name: 'Red & Yellow Onions',
-    botanical: 'Allium cepa',
-    origin: 'Punjab & Sindh, Pakistan',
-    packaging: '5kg, 10kg, 25kg, 50kg Leno Mesh Bags & Cartons',
-    storageTemp: '0°C to +4°C (65% RH)',
-    shippingMode: '40ft Reefer Container / Sea Freight'
+    name: 'Fresh Whole White Garlic',
+    botanical: 'Allium sativum (لہسن)',
+    origin: 'Punjab & Northern Valleys, Pakistan',
+    packaging: '5kg, 10kg, 20kg Leno Mesh Sacks & Cartons',
+    storageTemp: '-1°C to 0°C (65% RH)',
+    shippingMode: '40ft Reefer Container (26–28 MT)'
   },
   {
-    name: 'Fresh Potatoes (Mozika / Dutch)',
-    botanical: 'Solanum tuberosum',
-    origin: 'Okara & Gujranwala, Punjab',
-    packaging: '10kg, 25kg, 50kg PP Sacks / Pallet Bins / Cartons',
-    storageTemp: '+3°C to +8°C (85% RH)',
-    shippingMode: '40ft High Cube Reefer Container (+4°C)'
+    name: 'Fresh Ginger Rhizomes',
+    botanical: 'Zingiber officinale (ادرک)',
+    origin: 'River Valley Agro Belts, Pakistan',
+    packaging: '10kg Crates, Cartons & Wooden Crates',
+    storageTemp: '+12°C to +14°C (85% RH)',
+    shippingMode: '40ft Reefer (+12°C) / Air Cargo'
   },
   {
-    name: 'Green Chilies & Capsicum',
-    botanical: 'Capsicum annuum',
-    origin: 'Kunri & Gujranwala Agro Belts',
-    packaging: '3kg, 4kg, 5kg Ventilated Corrugated Cartons',
-    storageTemp: '+7°C to +10°C (90% RH)',
-    shippingMode: 'Air Cargo Freight / Fast Reefer'
+    name: 'Premium Red Onions',
+    botanical: 'Allium cepa (لال پیاز)',
+    origin: 'Sindh (Nasarpur) & Punjab, Pakistan',
+    packaging: '10kg, 25kg, 50kg Red Leno Mesh Bags',
+    storageTemp: '0°C to +4°C (65–70% RH)',
+    shippingMode: '40ft High Cube Reefer (28–29 MT)'
   },
   {
-    name: 'Fresh Garlic (NARC-G1) & Ginger',
-    botanical: 'Allium sativum & Z. officinale',
-    origin: 'Punjab & KPK Farms',
-    packaging: '5kg, 10kg, 20kg Mesh Bags / Cartons',
-    storageTemp: 'Garlic: -1°C to 0°C | Ginger: +12°C',
-    shippingMode: '40ft Reefer Ocean Container'
+    name: 'Export Potatoes (Mozika/Asterix/Rosetta)',
+    botanical: 'Solanum tuberosum (آلو)',
+    origin: 'Okara, Sahiwal & Jhelum, Punjab',
+    packaging: '10kg, 25kg Mesh Sacks & 1T Jumbo Bins',
+    storageTemp: '+4°C to +8°C (85–90% RH)',
+    shippingMode: '40ft High Cube Reefer (+4°C, 28–30 MT)'
   },
   {
-    name: 'Fresh Tomatoes (Roma / Round)',
-    botanical: 'Lycopersicon esculentum',
-    origin: 'Gujranwala & Central Punjab',
-    packaging: '5kg, 6kg Telescopic Corrugated Boxes',
-    storageTemp: '+10°C to +12°C (85% RH)',
-    shippingMode: 'Air Cargo / Expedited Reefer'
+    name: 'Green Chillies & Red Chilli',
+    botanical: 'Capsicum annuum (مرچ)',
+    origin: 'Kunri & Jhelum Green Corridors',
+    packaging: '3kg, 4kg, 5kg Ventilated Corrugated Boxes',
+    storageTemp: '+7°C to +10°C (90–95% RH)',
+    shippingMode: 'Air Cargo Flights / Fast Reefer'
   },
   {
-    name: 'Fresh Okra (Lady Finger)',
-    botanical: 'Abelmoschus esculentus',
-    origin: 'Punjab Green Belts',
-    packaging: '4kg, 5kg Ventilated Export Cartons',
-    storageTemp: '+8°C to +10°C (90% RH)',
-    shippingMode: 'Commercial Air Cargo (Daily Flights)'
+    name: 'Fresh Turnips (Seasonal Produce)',
+    botanical: 'Brassica rapa (تازہ شلجم)',
+    origin: 'Central Punjab River Basins, Pakistan',
+    packaging: '5kg, 10kg Telescopic Cartons & Mesh',
+    storageTemp: '0°C to +2°C (95% RH)',
+    shippingMode: '40ft Reefer Container (24–26 MT)'
   },
   {
-    name: 'Fresh Brinjal (Eggplant)',
-    botanical: 'Solanum melongena',
-    origin: 'Punjab Green Belts',
-    packaging: '5kg Corrugated Cartons with protective sheets',
-    storageTemp: '+10°C to +12°C (85% RH)',
-    shippingMode: 'Air Cargo / Sea Reefer'
+    name: 'Fresh Carrots (Pakistani Red & Kuroda)',
+    botanical: 'Daucus carota (تازہ گاجر)',
+    origin: 'Jhelum & Sahiwal Agro Belts',
+    packaging: '10kg PE Liner Master Cartons & Crates',
+    storageTemp: '0°C to +1°C (95–98% RH)',
+    shippingMode: '40ft Reefer Container (26–28 MT)'
   }
 ];
 
@@ -174,7 +255,7 @@ export const VEGETABLE_STEPS = [
   {
     step: '01',
     title: 'Order Sourcing & Quality Inspection',
-    description: 'Direct procurement contracts with GlobalGAP and certified commercial farm clusters across Gujranwala and Punjab. Field agronomy teams inspect crop health, pest-free status, and physiological maturity before harvest.'
+    description: 'Direct procurement contracts with GlobalGAP and certified commercial farm clusters across Jhelum and Punjab. Field agronomy teams inspect crop health, pest-free status, and physiological maturity before harvest.'
   },
   {
     step: '02',
@@ -212,6 +293,6 @@ export const VEGETABLE_VALUE_PROPS = [
   {
     title: 'Custom B2B Packaging',
     subtitle: 'Mesh Bags, Cartons & OEM Branding',
-    description: 'Tailored for retail chains, wholesale food markets, and restaurant distributors. Available in 5kg, 10kg, 25kg, 50kg leno mesh bags, heavy burst-strength corrugated boxes, jute sacks, and your custom brand graphics.'
+    description: 'Tailored for retail chains, wholesale food markets, and restaurant distributors. Available in 5kg, 10kg, 25kg, 50kg leno mesh bags, heavy burst-strength corrugated boxes, wooden crates, and your custom brand graphics.'
   }
 ];

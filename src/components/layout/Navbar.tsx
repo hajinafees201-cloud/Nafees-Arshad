@@ -7,18 +7,15 @@ import {
   X, 
   FileText, 
   ShieldCheck, 
-  Truck, 
-  Sparkles, 
-  ShoppingBag, 
   ArrowRight,
-  PhoneCall,
-  Search,
   Leaf,
-  Stethoscope
+  Scissors,
+  Mail
 } from 'lucide-react';
 import { CATEGORIES } from '../../data/catalog';
 import { COMPANY_INFO } from '../../data/company';
 import { PageView, RfqCartItem } from '../../types';
+import { Logo } from '../common/Logo';
 
 interface NavbarProps {
   currentPage: PageView;
@@ -55,36 +52,51 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all shadow-xs">
       {/* Top Corporate Strip */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-3 text-slate-300">
-            <span className="flex items-center gap-1.5 text-slate-300 font-medium">
-              <Globe2 className="w-3.5 h-3.5 text-orange-400" />
-              <span>Utility Home Exports · Gujranwala, Punjab, Pakistan</span>
+      <div className="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 text-[11px] sm:text-xs">
+          
+          {/* Left Compliance & Origin */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-slate-300 min-w-0">
+            <span className="flex items-center gap-1.5 font-medium text-white truncate">
+              <Globe2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="truncate">Utility Home Exports · Head Office: Jhelum, Pakistan</span>
             </span>
-            <span className="hidden md:inline-block text-slate-600">|</span>
-            <span className="hidden md:inline-flex items-center gap-1.5 text-slate-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>CEO: Nafees Arshad</span>
+            <span className="hidden sm:inline-block text-slate-700">|</span>
+            <span className="hidden md:inline-flex items-center gap-1 text-emerald-400 font-semibold shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>FBR &amp; PSW Registered Exporter</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-3 text-xs">
+          {/* Right: Official Clickable Icons Only (WhatsApp, Email, LinkedIn) - No text links or raw numbers */}
+          <div className="flex items-center gap-2 shrink-0">
             <a 
-              href={`mailto:${COMPANY_INFO.email}`} 
-              className="hover:text-white transition-colors text-slate-300 font-medium"
+              href={COMPANY_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-transform hover:scale-105 shadow-2xs"
+              title="Official WhatsApp Direct Chat"
+              aria-label="Official WhatsApp Direct Chat"
             >
-              {COMPANY_INFO.email}
+              <i className="fa-brands fa-whatsapp text-sm"></i>
             </a>
-            <span className="text-slate-600">|</span>
             <a 
-              href={`https://wa.me/${COMPANY_INFO.whatsapp.replace(/[^0-9]/g, '')}`} 
-              target="_blank" 
-              rel="noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors flex items-center gap-1"
+              href={`mailto:${COMPANY_INFO.email}`}
+              className="w-7 h-7 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white flex items-center justify-center transition-transform hover:scale-105 shadow-2xs border border-slate-700"
+              title={`Corporate Email: ${COMPANY_INFO.email}`}
+              aria-label="Corporate Email"
             >
-              <span>WhatsApp / Call:</span>
-              <span>{COMPANY_INFO.whatsapp}</span>
+              <Mail className="w-3.5 h-3.5" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/utilityhome-export"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-7 h-7 rounded-md bg-[#0A66C2] hover:bg-[#004182] text-white flex items-center justify-center transition-transform hover:scale-105 shadow-2xs"
+              title="Official LinkedIn Profile - Utility Home Exports"
+              aria-label="Official LinkedIn Profile"
+            >
+              <i className="fa-brands fa-linkedin text-sm"></i>
             </a>
           </div>
         </div>
@@ -92,129 +104,107 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-2 sm:gap-4">
           
-          {/* Logo & Brand Identity */}
+          {/* Logo & Brand Identity: Green UH Monogram on Dark Charcoal Container */}
           <button 
             onClick={() => onNavigate('home')} 
-            className="flex items-center gap-3 text-left group focus:outline-none"
+            className="flex items-center text-left focus:outline-none cursor-pointer shrink-0"
+            aria-label="Utility Home Exports - Home"
           >
-            <div className="w-11 h-11 rounded-lg bg-slate-900 flex items-center justify-center text-white shadow-md group-hover:bg-slate-800 transition-colors relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/30 to-transparent pointer-events-none" />
-              <Building2 className="w-6 h-6 text-orange-400 relative z-10" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl font-extrabold tracking-tight text-slate-900 font-['Space_Grotesk']">
-                  UTILITY HOME
-                </span>
-                <span className="text-[10px] bg-orange-100 text-orange-800 font-bold px-1.5 py-0.5 rounded tracking-wide uppercase">
-                  EXPORTS
-                </span>
-              </div>
-              <span className="text-[10px] uppercase tracking-wider font-semibold text-slate-500 block">
-                Gujranwala, Pakistan · CEO: Nafees Arshad
-              </span>
-            </div>
+            <Logo 
+              size="md" 
+              subtitleText="Head Office: Jhelum, Pakistan"
+            />
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 min-w-0 text-slate-700 font-medium">
             <button
               onClick={() => onNavigate('home')}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                 currentPage === 'home' 
-                  ? 'text-orange-600 font-semibold' 
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'text-orange-600 font-bold bg-orange-50/60' 
+                  : 'hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               Home
             </button>
 
-            {/* Products / Categories Dropdown */}
+            {/* Products / 3 Core Categories Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
                 onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
-                className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                className={`flex items-center gap-1 px-2.5 py-2 text-xs xl:text-sm font-medium transition-colors rounded-lg cursor-pointer whitespace-nowrap ${
                   currentPage === 'category'
-                    ? 'text-orange-600 font-semibold bg-orange-50/70'
-                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                    ? 'text-orange-600 font-bold bg-orange-50/70'
+                    : 'hover:text-slate-900 hover:bg-slate-50'
                 }`}
                 aria-expanded={productsDropdownOpen}
               >
-                <span>Product Categories</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-orange-600' : 'text-slate-400'}`} />
+                <span>3 Core Export Lines</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-orange-600' : 'text-slate-400'}`} />
               </button>
 
               {/* Rich Dropdown Menu */}
               {productsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-xl shadow-2xl border border-slate-200 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                   <div className="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                     <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                      Export Divisions
+                      Primary Export Divisions
                     </span>
-                    <span className="text-[11px] font-medium text-emerald-600">
-                      Modular B2B Catalog
+                    <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                      Halal &amp; ISO Verified
                     </span>
                   </div>
 
                   <div className="py-2 space-y-1">
-                    {CATEGORIES.map((cat) => {
-                      const isActiveCategory = cat.status === 'active';
-                      return (
-                        <button
-                          key={cat.id}
-                          onClick={() => {
-                            setProductsDropdownOpen(false);
-                            if (cat.slug === 'surgical-instruments') {
-                              onNavigate('surgical');
-                            } else if (cat.slug === 'fresh-vegetables') {
-                              onNavigate('vegetables');
-                            } else {
-                              onNavigate('category', cat.slug);
-                            }
-                          }}
-                          className={`w-full text-left p-3 rounded-lg transition-all group flex items-start gap-3 ${
-                            selectedCategorySlug === cat.slug && currentPage === 'category'
-                              ? 'bg-orange-50/80 border border-orange-200/60'
-                              : 'hover:bg-slate-50'
-                          }`}
-                        >
-                          <div className={`w-10 h-10 rounded-md overflow-hidden shrink-0 mt-0.5 border ${
-                            isActiveCategory ? 'border-orange-200' : 'border-slate-200'
-                          }`}>
-                            <img 
-                              src={cat.heroImage} 
-                              alt={cat.title} 
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
-                            />
+                    {CATEGORIES.map((cat, idx) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => {
+                          setProductsDropdownOpen(false);
+                          if (cat.slug === 'fresh-vegetables') {
+                            onNavigate('vegetables');
+                          } else {
+                            onNavigate('category', cat.slug);
+                          }
+                        }}
+                        className={`w-full text-left p-3 rounded-xl transition-all group flex items-start gap-3 cursor-pointer ${
+                          selectedCategorySlug === cat.slug && currentPage === 'category'
+                            ? 'bg-orange-50/80 border border-orange-200/60'
+                            : 'hover:bg-slate-50'
+                        }`}
+                      >
+                        <div className="w-11 h-11 rounded-lg overflow-hidden shrink-0 mt-0.5 border border-slate-200 bg-slate-950">
+                          <img 
+                            src={cat.heroImage} 
+                            alt={cat.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/pink_salt_banner.jpg';
+                            }}
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                              {cat.title}
+                            </span>
+                            <span className="text-[10px] font-semibold text-slate-500 font-mono">
+                              0{idx + 1}
+                            </span>
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-1">
-                              <span className="text-sm font-semibold text-slate-900 group-hover:text-orange-600 transition-colors">
-                                {cat.title}
-                              </span>
-                              {isActiveCategory ? (
-                                <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                                  Export Ready
-                                </span>
-                              ) : (
-                                <span className="text-[10px] font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
-                                  Pipeline
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
-                              {cat.shortDescription}
-                            </p>
-                          </div>
-                        </button>
-                      );
-                    })}
+                          <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                            {cat.subtitle}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
                   </div>
 
-                  <div className="pt-2 mt-1 border-t border-slate-100 bg-slate-50/80 -mx-3 -mb-3 p-3 rounded-b-xl flex items-center justify-between text-xs">
+                  <div className="pt-2 mt-1 border-t border-slate-100 bg-slate-50/80 -mx-3 -mb-3 p-3 rounded-b-2xl flex items-center justify-between text-xs">
                     <span className="text-slate-500">
                       Need custom specifications?
                     </span>
@@ -223,9 +213,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setProductsDropdownOpen(false);
                         onNavigate('contact');
                       }}
-                      className="font-semibold text-orange-600 hover:text-orange-700 flex items-center gap-1"
+                      className="font-bold text-orange-600 hover:text-orange-700 flex items-center gap-1 cursor-pointer"
                     >
-                      <span>Custom Inquiries</span>
+                      <span>Custom RFQ Desk</span>
                       <ArrowRight className="w-3 h-3" />
                     </button>
                   </div>
@@ -233,93 +223,95 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Surgical Instruments Navigation Link (Highlighted Active Category) */}
-            <button
-              onClick={() => onNavigate('surgical')}
-              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-semibold transition-all rounded-lg cursor-pointer ${
-                currentPage === 'surgical' 
-                  ? 'text-teal-950 bg-teal-50 border-2 border-teal-500 shadow-sm ring-2 ring-teal-500/20 font-bold' 
-                  : 'text-teal-800 hover:text-teal-950 hover:bg-teal-50/80 border border-teal-200/80'
-              }`}
-            >
-              <Stethoscope className="w-4 h-4 text-teal-600" />
-              <span>Surgical Instruments</span>
-              <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-wider ${
-                currentPage === 'surgical'
-                  ? 'bg-teal-500 text-slate-950'
-                  : 'bg-teal-100 text-teal-800'
-              }`}>
-                Active
-              </span>
-            </button>
-
-            {/* Fresh Vegetables Navigation Link */}
+            {/* Direct Link: Fresh Vegetables (Visible on xl+) */}
             <button
               onClick={() => onNavigate('vegetables')}
-              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-semibold transition-colors rounded-lg ${
+              className={`hidden xl:flex items-center gap-1 px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors rounded-lg cursor-pointer whitespace-nowrap ${
                 currentPage === 'vegetables' 
                   ? 'text-emerald-800 bg-emerald-50 border border-emerald-200 shadow-2xs' 
                   : 'text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50/60'
               }`}
             >
-              <Leaf className="w-4 h-4 text-emerald-600" />
+              <Leaf className="w-3.5 h-3.5 text-emerald-600" />
               <span>Fresh Vegetables</span>
-              <span className="text-[10px] bg-lime-100 text-emerald-800 font-extrabold px-1.5 py-0.5 rounded-full">
-                Produce
-              </span>
+            </button>
+
+            {/* Direct Link: Surgical Instruments (Visible on 2xl+) */}
+            <button
+              onClick={() => onNavigate('category', 'surgical-instruments')}
+              className={`hidden 2xl:flex items-center gap-1 px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors rounded-lg cursor-pointer whitespace-nowrap ${
+                currentPage === 'category' && selectedCategorySlug === 'surgical-instruments'
+                  ? 'text-sky-800 bg-sky-50 border border-sky-200 shadow-2xs' 
+                  : 'text-sky-700 hover:text-sky-800 hover:bg-sky-50/60'
+              }`}
+            >
+              <Scissors className="w-3.5 h-3.5 text-sky-600" />
+              <span>Surgical Tools</span>
             </button>
 
             <button
               onClick={() => onNavigate('logistics')}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                 currentPage === 'logistics' 
-                  ? 'text-orange-600 font-semibold' 
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'text-orange-600 font-bold bg-orange-50/60' 
+                  : 'hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
-              Logistics &amp; Incoterms
+              Logistics
             </button>
 
             <button
               onClick={() => onNavigate('certifications')}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                 currentPage === 'certifications' 
-                  ? 'text-orange-600 font-semibold' 
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'text-orange-600 font-bold bg-orange-50/60' 
+                  : 'hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
-              Compliance &amp; QA
+              Compliance
             </button>
 
             <button
               onClick={() => onNavigate('about')}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                 currentPage === 'about' 
-                  ? 'text-orange-600 font-semibold' 
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'text-orange-600 font-bold bg-orange-50/60' 
+                  : 'hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               About Us
             </button>
 
             <button
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => {
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              className="px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap hover:text-orange-600 hover:bg-slate-50"
+            >
+              Reviews
+            </button>
+
+            <button
               onClick={() => onNavigate('contact')}
-              className={`px-3 py-2 text-sm font-medium transition-colors ${
+              className={`px-2.5 py-2 text-xs xl:text-sm rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                 currentPage === 'contact' 
-                  ? 'text-orange-600 font-semibold' 
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'text-orange-600 font-bold bg-orange-50/60' 
+                  : 'hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
-              Contact Desk
+              Contact / RFQ
             </button>
           </nav>
 
-          {/* Right Header Controls: RFQ Basket & Request Quote Button */}
-          <div className="flex items-center gap-3">
+          {/* Right Header Controls: RFQ Basket & Mobile Menu Button */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* RFQ Cart Button */}
             <button
               onClick={onOpenRfqDrawer}
-              className="relative p-2.5 rounded-lg border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-colors bg-white shadow-2xs"
+              className="relative p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300 transition-colors bg-white shadow-2xs cursor-pointer shrink-0"
               title="View RFQ Quote Basket"
               aria-label="View RFQ Quote Basket"
             >
@@ -331,19 +323,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Request a Quote CTA */}
-            <button
-              onClick={() => onNavigate('contact')}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold shadow-sm hover:shadow transition-all"
-            >
-              <span>Request a Quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              className="lg:hidden p-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -361,77 +344,44 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('home');
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg cursor-pointer"
             >
               Home
             </button>
 
             <div className="pt-2 pb-1 border-t border-slate-100">
               <span className="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Product Categories
+                3 Core Export Divisions
               </span>
               <div className="mt-1 space-y-1">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => {
-                      onNavigate('category', cat.slug);
+                      if (cat.slug === 'fresh-vegetables') {
+                        onNavigate('vegetables');
+                      } else {
+                        onNavigate('category', cat.slug);
+                      }
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full text-left px-3 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 rounded-lg flex items-center justify-between"
+                    className="w-full text-left px-3 py-2 text-sm font-medium text-slate-700 hover:text-orange-600 hover:bg-slate-50 rounded-lg flex items-center justify-between cursor-pointer"
                   >
                     <span>{cat.title}</span>
-                    <span className="text-[10px] text-slate-400">
-                      {cat.status === 'active' ? 'Export Ready' : 'Pipeline'}
+                    <span className="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">
+                      Active
                     </span>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Surgical Instruments Mobile Link */}
-            <button
-              onClick={() => {
-                onNavigate('surgical');
-                setMobileMenuOpen(false);
-              }}
-              className={`text-left px-3 py-2 text-base font-bold rounded-lg flex items-center justify-between ${
-                currentPage === 'surgical'
-                  ? 'text-teal-950 bg-teal-100 border border-teal-300'
-                  : 'text-teal-900 bg-teal-50 hover:bg-teal-100/70 border border-teal-200'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Stethoscope className="w-4 h-4 text-teal-600" />
-                <span>Surgical Instruments Export</span>
-              </div>
-              <span className="text-[10px] bg-teal-600 text-white px-2 py-0.5 rounded font-extrabold uppercase">
-                Active
-              </span>
-            </button>
-
-            <button
-              onClick={() => {
-                onNavigate('vegetables');
-                setMobileMenuOpen(false);
-              }}
-              className="text-left px-3 py-2 text-base font-bold text-emerald-800 bg-emerald-50 rounded-lg flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2">
-                <Leaf className="w-4 h-4 text-emerald-600" />
-                <span>Fresh Vegetables Export</span>
-              </div>
-              <span className="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded font-extrabold uppercase">
-                New
-              </span>
-            </button>
-
             <button
               onClick={() => {
                 onNavigate('logistics');
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg cursor-pointer"
             >
               Logistics &amp; Incoterms
             </button>
@@ -441,9 +391,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('certifications');
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg cursor-pointer"
             >
-              Quality &amp; Compliance
+              Quality &amp; Halal Compliance
             </button>
 
             <button
@@ -451,9 +401,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('about');
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg cursor-pointer"
             >
-              About Us
+              About Us (Company Credentials)
             </button>
 
             <button
@@ -461,9 +411,22 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('contact');
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="text-left px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-50 rounded-lg cursor-pointer"
             >
-              Inquiry / RFP Hub
+              Inquiry / RFQ Desk
+            </button>
+
+            <button
+              onClick={() => {
+                onNavigate('home');
+                setMobileMenuOpen(false);
+                setTimeout(() => {
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              className="text-left px-3 py-2 text-base font-medium text-orange-600 hover:bg-slate-50 rounded-lg cursor-pointer font-semibold"
+            >
+              ★ International Buyer Reviews
             </button>
           </div>
 
@@ -473,18 +436,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onNavigate('contact');
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-3 bg-orange-600 text-white rounded-lg font-semibold text-center text-sm shadow-sm"
+              className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold text-center text-sm shadow-xs cursor-pointer flex items-center justify-center gap-2"
             >
-              Request a B2B Quote
-            </button>
-            <button
-              onClick={() => {
-                onOpenRfqDrawer();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full py-2.5 border border-slate-300 text-slate-700 rounded-lg font-medium text-center text-sm"
-            >
-              View RFQ Cart ({totalRfqCount} items)
+              <span>Request a Bulk B2B Quotation</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

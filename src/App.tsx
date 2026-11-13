@@ -16,15 +16,17 @@ import { LogisticsPage } from './components/pages/LogisticsPage';
 import { CertificationsPage } from './components/pages/CertificationsPage';
 import { ContactRfqPage } from './components/pages/ContactRfqPage';
 import { VegetablesPage } from './components/pages/VegetablesPage';
-import { SurgicalPage } from './components/pages/SurgicalPage';
 import { RfqDrawer } from './components/rfq/RfqDrawer';
 import { ProductSpecModal } from './components/common/ProductSpecModal';
 import { CATEGORIES } from './data/catalog';
 import { PageView, ProductVariant, RfqCartItem } from './types';
 import { Check, CheckCircle2 } from 'lucide-react';
+import { WhatsAppFloatingButton } from './components/common/WhatsAppFloatingButton';
+import { CustomerReviewsSection } from './components/home/CustomerReviewsSection';
+import { SEO } from './components/common/SEO';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageView>('surgical');
+  const [currentPage, setCurrentPage] = useState<PageView>('home');
   const [selectedCategorySlug, setSelectedCategorySlug] = useState<string>('himalayan-pink-salt');
   
   // RFQ Basket state
@@ -84,12 +86,13 @@ export default function App() {
             : item
         );
       }
+      const parentCategory = CATEGORIES.find((cat) => cat.variants.some((v) => v.id === product.id));
       return [
         ...prev,
         {
           variantId: product.id,
           variantName: product.name,
-          categoryName: 'Himalayan Pink Salt',
+          categoryName: parentCategory ? parentCategory.title : 'Export Line',
           hsCode: product.hsCode,
           quantity: 1,
           unit: '20ft FCL Containers',
@@ -142,10 +145,21 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-orange-600 selection:text-white">
-      {/* Toast Notification */}
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-orange-600 selection:text-white w-full max-w-full overflow-x-hidden">
+      {/* Dynamic SEO & Schema.org Controller */}
+      <SEO currentPage={currentPage} categorySlug={selectedCategorySlug} />
+
+      {/* Accessibility: Skip to Main Content Link */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-orange-600 focus:text-white focus:rounded-lg focus:shadow-xl focus:text-xs focus:font-bold"
+      >
+        Skip to main content
+      </a>
+
+      {/* Toast Notification (Left positioned to not conflict with floating WhatsApp) */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 border border-slate-700 animate-in slide-in-from-bottom-3 duration-200">
+        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-[calc(100vw-2rem)] z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 border border-slate-700 animate-in slide-in-from-bottom-3 duration-200">
           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span className="font-medium">{toastMessage}</span>
         </div>
@@ -161,7 +175,7 @@ export default function App() {
       />
 
       {/* Page Body Views */}
-      <main className="flex-1">
+      <main id="main-content" className="flex-1 w-full max-w-full overflow-x-hidden">
         {currentPage === 'home' && (
           <>
             <HeroSection
@@ -176,6 +190,7 @@ export default function App() {
               onNavigate={handleNavigate}
               onOpenQuickRfq={handleHeroQuickRfq}
             />
+            <CustomerReviewsSection />
             <ValueProposition
               onNavigate={handleNavigate}
               onOpenQuickRfq={() => setIsRfqDrawerOpen(true)}
@@ -241,6 +256,9 @@ export default function App() {
         onClose={() => setProductForSpec(null)}
         onAddToRfq={handleAddToCart}
       />
+
+      {/* Live WhatsApp Inquiry Floating Button (Bottom Right) */}
+      <WhatsAppFloatingButton currentPage={currentPage} />
     </div>
   );
 }

@@ -13,11 +13,13 @@ import {
   Phone, 
   Globe, 
   ArrowRight,
-  Plus
+  Plus,
+  AlertCircle
 } from 'lucide-react';
 import { RfqCartItem } from '../../types';
 import { DESTINATION_PORTS } from '../../data/catalog';
 import { COMPANY_INFO } from '../../data/company';
+import { FORM_ENDPOINTS } from '../../config/forms';
 
 interface RfqDrawerProps {
   isOpen: boolean;
@@ -50,18 +52,53 @@ export const RfqDrawer: React.FC<RfqDrawerProps> = ({
   const [samplesRequested, setSamplesRequested] = useState(false);
   const [notes, setNotes] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submittedRfq, setSubmittedRfq] = useState<{ id: string; timestamp: string } | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    setTimeout(() => {
-      const rfqId = `RFQ-UH-${Date.now().toString().slice(-6)}`;
-      const timestamp = new Date().toLocaleString();
-      
+    const rfqId = `RFQ-UH-${Date.now().toString().slice(-6)}`;
+    const timestamp = new Date().toLocaleString();
+    
+    const formspreePayload = {
+      product_category: 'B2B Export Catalog Selection',
+      product_variant: items.map(it => `${it.variantName} (${it.quantity} ${it.unit})`).join('; '),
+      volume: items.map(it => `${it.quantity} ${it.unit}`).join(', '),
+      incoterm,
+      packaging: packagingType,
+      destination_port: destinationPort,
+      company_name: companyName,
+      full_name: buyerName,
+      email: businessEmail,
+      whatsapp_phone: phoneNumber,
+      country,
+      special_instructions: notes,
+      sample_required: samplesRequested ? 'Yes' : 'No',
+      oem_branding_required: customBranding ? 'Yes' : 'No',
+      rfq_reference: rfqId,
+      submitted_at: timestamp
+    };
+
+    try {
+      const response = await fetch(FORM_ENDPOINTS.rfq, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formspreePayload)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to submit inquiry to the RFQ desk. Please try again.');
+      }
+
       const payload = {
         rfqId,
         timestamp,
@@ -79,9 +116,13 @@ export const RfqDrawer: React.FC<RfqDrawerProps> = ({
         console.error('Storage error', err);
       }
 
-      setIsSubmitting(false);
       setSubmittedRfq({ id: rfqId, timestamp });
-    }, 800);
+    } catch (err: any) {
+      console.error('Formspree RFQ error:', err);
+      setSubmitError(err.message || 'An error occurred while submitting your quotation. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDownloadSummary = () => {
@@ -150,15 +191,17 @@ freight calculation within 12-24 business hours.
         {/* Drawer Header */}
         <div className="p-5 border-b border-slate-200 bg-slate-900 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-orange-600 flex items-center justify-center text-white">
-              <FileText className="w-5 h-5" />
-            </div>
+            <img 
+              src="/images/utility_home_export_logo.jpeg" 
+              alt="Utility Home Export Official Logo"
+              className="w-10 h-10 rounded-xl object-cover shadow-sm shrink-0 border border-slate-700/80"
+            />
             <div>
               <h3 className="font-bold text-base font-['Space_Grotesk'] text-white">
                 B2B Request for Quotation (RFQ)
               </h3>
               <p className="text-xs text-slate-300">
-                Direct export quote calculation &amp; container inquiry desk
+                Utility Home Exports · Head Office: Jhelum, Pakistan
               </p>
             </div>
           </div>
@@ -174,22 +217,27 @@ freight calculation within 12-24 business hours.
         {/* Content Body */}
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {submittedRfq ? (
-            /* Confirmation Screen */
-            <div className="text-center py-8 space-y-5">
+            <div className="text-center py-8 space-y-6">
+              {/* User Success Notification Banner */}
+              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center justify-center gap-2 max-w-lg mx-auto shadow-xs">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span>Thank you! Your inquiry has been sent successfully.</span>
+              </div>
+
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-inner">
                 <CheckCircle2 className="w-9 h-9" />
               </div>
 
               <div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 block mb-1">
-                  RFQ Dispatched Successfully
+                  RFQ Dispatched Successfully via Formspree
                 </span>
                 <h3 className="text-2xl font-bold text-slate-900 font-['Space_Grotesk']">
                   Reference: {submittedRfq.id}
                 </h3>
                 <p className="text-sm text-slate-600 max-w-md mx-auto mt-2">
                   Thank you, <strong className="text-slate-800">{buyerName || companyName || 'Procurement Officer'}</strong>. 
-                  Our export desk led by CEO <strong>{COMPANY_INFO.ceo}</strong> in Gujranwala, Punjab will review your container volumes and prepare an official Proforma Invoice with current ocean freight rates within 12–24 hours.
+                  Our export desk led by CEO <strong>{COMPANY_INFO.ceo}</strong> at Head Office: Jhelum, Pakistan will review your container volumes and prepare an official Proforma Invoice with current ocean freight rates within 12–24 hours.
                 </p>
               </div>
 
@@ -217,7 +265,7 @@ freight calculation within 12-24 business hours.
                 <button
                   type="button"
                   onClick={handleDownloadSummary}
-                  className="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors"
+                  className="px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download RFQ Sheet (.txt)</span>
@@ -229,7 +277,7 @@ freight calculation within 12-24 business hours.
                     onClearCart();
                     onClose();
                   }}
-                  className="px-5 py-2.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-sm transition-colors"
+                  className="px-5 py-2.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold text-sm transition-colors cursor-pointer"
                 >
                   Close &amp; Return to Catalog
                 </button>
@@ -237,7 +285,16 @@ freight calculation within 12-24 business hours.
             </div>
           ) : (
             /* Inquiry Form & Items */
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action={FORM_ENDPOINTS.rfq}
+              method="POST"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Formspree Core Hidden Fields */}
+              <input type="hidden" name="product_category" value="B2B Export Catalog Selection" />
+              <input type="hidden" name="product_variant" value={items.map(it => `${it.variantName} (${it.quantity} ${it.unit})`).join('; ')} />
+              <input type="hidden" name="volume" value={items.map(it => `${it.quantity} ${it.unit}`).join(', ')} />
               
               {/* Items Section */}
               <div className="space-y-3">
@@ -330,6 +387,7 @@ freight calculation within 12-24 business hours.
                       Target Incoterm
                     </label>
                     <select
+                      name="incoterm"
                       value={incoterm}
                       onChange={(e) => setIncoterm(e.target.value as any)}
                       className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -346,6 +404,7 @@ freight calculation within 12-24 business hours.
                       Discharge Port of Destination
                     </label>
                     <select
+                      name="destination_port"
                       value={destinationPort}
                       onChange={(e) => setDestinationPort(e.target.value)}
                       className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -365,6 +424,7 @@ freight calculation within 12-24 business hours.
                       Packaging Specification
                     </label>
                     <select
+                      name="packaging"
                       value={packagingType}
                       onChange={(e) => setPackagingType(e.target.value)}
                       className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -384,6 +444,7 @@ freight calculation within 12-24 business hours.
                     </label>
                     <input
                       type="text"
+                      name="country"
                       placeholder="e.g. Germany, USA, UAE, Japan"
                       required
                       value={country}
@@ -398,6 +459,7 @@ freight calculation within 12-24 business hours.
                   <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
                     <input
                       type="checkbox"
+                      name="oem_branding_required"
                       checked={customBranding}
                       onChange={(e) => setCustomBranding(e.target.checked)}
                       className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
@@ -408,6 +470,7 @@ freight calculation within 12-24 business hours.
                   <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
                     <input
                       type="checkbox"
+                      name="sample_required"
                       checked={samplesRequested}
                       onChange={(e) => setSamplesRequested(e.target.checked)}
                       className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
@@ -431,6 +494,7 @@ freight calculation within 12-24 business hours.
                     </label>
                     <input
                       type="text"
+                      name="full_name"
                       required
                       placeholder="e.g. David Vance"
                       value={buyerName}
@@ -445,6 +509,7 @@ freight calculation within 12-24 business hours.
                     </label>
                     <input
                       type="text"
+                      name="company_name"
                       required
                       placeholder="e.g. Al-Noor Trading GmbH"
                       value={companyName}
@@ -461,6 +526,7 @@ freight calculation within 12-24 business hours.
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="purchasing@company.com"
                       value={businessEmail}
@@ -475,6 +541,7 @@ freight calculation within 12-24 business hours.
                     </label>
                     <input
                       type="tel"
+                      name="whatsapp_phone"
                       placeholder="+49 171 1234567"
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
@@ -489,6 +556,7 @@ freight calculation within 12-24 business hours.
                   </label>
                   <textarea
                     rows={2}
+                    name="special_instructions"
                     placeholder="Provide specific grain sizes (e.g. 0.2-0.8mm), monthly container schedule, or certification requests (SGS/Kosher/Halal)..."
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}

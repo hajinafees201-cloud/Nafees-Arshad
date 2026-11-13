@@ -253,7 +253,7 @@ const MAP_PORTS: MapPort[] = [
 
 // Origin Hub in Pakistan
 const ORIGIN = {
-  name: 'Karachi Port / Port Qasim & Gujranwala HQ',
+  name: 'Head Office: Jhelum, Pakistan & Port Qasim / Karachi Hub',
   code: 'PKKHI / PKBQM',
   x: 632,
   y: 232
@@ -294,7 +294,7 @@ export const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({
             </h2>
             
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Exporting from our headquarters in <strong>Gujranwala, Punjab</strong> and container berths at <strong>Port Qasim &amp; Karachi Port</strong> across 42+ destinations worldwide.
+              Exporting from our <strong>Head Office: Jhelum, Pakistan</strong> and container berths at <strong>Port Qasim &amp; Karachi Port</strong> across 42+ destinations worldwide.
             </p>
           </div>
 
@@ -365,7 +365,7 @@ export const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({
               </span>
               <span className="text-slate-600 hidden sm:inline">|</span>
               <span className="text-slate-400 hidden sm:inline">
-                Head Office: Gujranwala, Punjab, Pakistan
+                Head Office: Jhelum, Pakistan
               </span>
             </div>
 
@@ -539,7 +539,7 @@ export const GlobalReachSection: React.FC<GlobalReachSectionProps> = ({
                   fontFamily="Space Grotesk, sans-serif"
                   fontWeight="bold"
                 >
-                  PK ORIGIN (Karachi / Gujranwala)
+                  PK ORIGIN (Head Office: Jhelum, Pakistan)
                 </text>
               </g>
             </svg>

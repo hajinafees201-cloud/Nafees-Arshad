@@ -2,7 +2,7 @@ export interface ProductVariant {
   id: string;
   name: string;
   categorySlug: string;
-  subcategory: 'edible' | 'decor' | 'animal' | 'spa';
+  subcategory: string;
   tagline: string;
   description: string;
   hsCode: string;
@@ -94,23 +94,4 @@ export interface VegetableProduct {
   imageUrl: string;
 }
 
-export interface SurgicalProduct {
-  id: string;
-  title: string;
-  category: string;
-  material: string;
-  finish: string;
-  autoclavable: string;
-  certifications: string[];
-  packagingBadge: string;
-  hsCode: string;
-  moq: string;
-  hardness: string;
-  description: string;
-  technicalSpecs: { label: string; value: string }[];
-  packagingOptions: string[];
-  imageUrl: string;
-  imageSourceComment: string;
-}
-
-export type PageView = 'home' | 'category' | 'vegetables' | 'surgical' | 'about' | 'logistics' | 'contact' | 'certifications';
+export type PageView = 'home' | 'category' | 'vegetables' | 'about' | 'logistics' | 'contact' | 'certifications';

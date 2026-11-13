@@ -4,18 +4,18 @@ export const CATEGORIES: Category[] = [
   {
     id: 'cat-himalayan-salt',
     slug: 'himalayan-pink-salt',
-    title: 'Himalayan Pink Salt',
-    subtitle: '100% Raw, Ancient Mineral Salt Sourced from the Foothills of the Himalayas',
+    title: 'Himalayan Pink Salt Products',
+    subtitle: '100% Raw, Ancient Mineral Salt Sourced from the Khewra Foothills of the Himalayas',
     status: 'active',
-    badgeLabel: 'Primary Export Line · Active',
-    shortDescription: 'Unrefined, unpolluted, and mineral-dense crystal salt excavated directly from centuries-old subterranean rock veins. Supplied in food-grade, equestrian, decorative, and wellness specifications.',
-    fullDescription: 'Utility Home operates direct quarry-to-port supply pipelines for pure Himalayan Pink Salt. Formed over 250 million years ago, our mineral salt is protected from modern marine microplastics and industrial contamination. We perform multi-stage optical sorting, metal detection, and laboratory chemical analysis to satisfy stringent European, North American, and GCC import compliance standards.',
+    badgeLabel: 'Core Export Line 1 · Active',
+    shortDescription: 'Unrefined, unpolluted, and mineral-dense crystal salt excavated directly from centuries-old subterranean rock veins. Supplied in food-grade edible crystals, cooking tiles, handcrafted lamps, and equestrian blocks.',
+    fullDescription: 'Utility Home Exports operates direct quarry-to-port supply pipelines for authentic Himalayan Pink Salt from the legendary Khewra mineral corridor in Punjab, Pakistan. Formed over 250 million years ago, our mineral salt is naturally free of modern microplastics and chemical bleaches. We execute multi-stage optical sorting, metal detection, and laboratory chemical analysis to satisfy stringent European, North American, and GCC import compliance standards.',
     heroImage: '/images/pink_salt_banner.jpg',
-    origin: 'Salt Range / Khewra Formation, Pakistan',
+    origin: 'Salt Range / Khewra Formation, Punjab, Pakistan',
     exportPorts: ['Port Qasim (PKBQM)', 'Karachi Port (PKKHI)'],
     leadTime: '10–14 Days to Port of Loading',
     capacity: '1,500+ Metric Tons / Month',
-    certifications: ['ISO 9001:2015', 'ISO 22000 (HACCP)', 'FDA Registered', 'Halal Certified', 'Kosher Certified', 'GMP Standard'],
+    certifications: ['ISO 9001:2015', 'ISO 22000 (HACCP)', 'FDA Registered', 'Official Halal Certified', 'Kosher Certified', 'GMP Standard'],
     packagingTypes: [
       {
         title: 'Bulk 25kg & 50kg Heavy-Duty Polypropylene (PP) Bags',
@@ -65,7 +65,7 @@ export const CATEGORIES: Category[] = [
           'Coarse Crystal (2.5mm - 5.0mm) · Glass Grinder Refills'
         ],
         colorGrades: ['Light Pink / Peach', 'Classic Medium Pink', 'Dark Rose / Ruby Crystal'],
-        certifications: ['HACCP', 'ISO 22000', 'FDA Registered', 'Halal', 'Kosher'],
+        certifications: ['HACCP', 'ISO 22000', 'FDA Registered', 'Halal Certified', 'Kosher Certified'],
         packagingOptions: [
           '25 kg Multi-Wall PP Bags with PE liner',
           '50 kg Export Woven Sacks',
@@ -93,7 +93,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: 'salt-lamps-decor',
-        name: 'Handcrafted Himalayan Salt Lamps & Wellness Decor',
+        name: 'Handcrafted Himalayan Salt Lamps & Decor',
         categorySlug: 'himalayan-pink-salt',
         subcategory: 'decor',
         tagline: 'Authentic Carved Rock Salt Lamps with Certified Electrical Assemblies',
@@ -132,6 +132,47 @@ export const CATEGORIES: Category[] = [
           'Hospitality lighting & luxury spa lounges'
         ],
         imageUrl: '/images/himalayan_salt_lamp.jpg'
+      },
+      {
+        id: 'salt-cooking-tiles',
+        name: 'Himalayan Salt Cooking Tiles, Slabs & Bricks',
+        categorySlug: 'himalayan-pink-salt',
+        subcategory: 'tiles',
+        tagline: 'High-Density Gourmet Salt Slabs for Grilling, Searing & Spa Wall Construction',
+        description: 'Precision-cut crystalline salt slabs quarried from solid rock veins without fractures or chemical binders. Withstands extreme cooking temperatures up to 450°C (800°F) for table grilling, chilled sushi serving, and architectural speleotherapy wall installations.',
+        hsCode: '2501.00.90 / 6802.99',
+        moq: '1,000 Units or Combined Container Load',
+        grainSizes: [
+          'Standard Slab: 8" x 4" x 2" (20 x 10 x 5 cm) · 2.5 kg',
+          'Chef Searing Tile: 8" x 8" x 2" (20 x 20 x 5 cm) · 5.0 kg',
+          'Large Grilling Block: 12" x 8" x 2" (30 x 20 x 5 cm) · 7.5 kg',
+          'Architectural Brick: 8" x 4" x 2.5" with 1-side smooth polish'
+        ],
+        colorGrades: ['Translucent Peach', 'Marbled Pink-Amber', 'Deep Ruby Veined'],
+        certifications: ['Food Contact Safe (FDA / EU)', 'Halal Certified', 'ISPM-15 Wooden Crates'],
+        packagingOptions: [
+          'Individual Shrink Wrap with Foam Corner Protectors',
+          'Corrugated Display Inner Box with Steel Wire Rack Option',
+          'Reinforced Master Wooden Crates (ISPM-15 Heat Treated)'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'Approx. 24–26 MT (Floor or Pallet Loaded)',
+          fortyFtFcl: '26 MT (Weight ceiling restricted)',
+          palletized: '20 to 22 Heavy Pallets with strap banding'
+        },
+        keySpecs: [
+          { label: 'Thermal Resistance', value: '-20°C to +450°C (-4°F to +800°F)' },
+          { label: 'Surface Finish', value: 'Precision cut diamond wire saw; smooth planar sides' },
+          { label: 'Density', value: '2.16 g/cm³ solid compact mineral' },
+          { label: 'Purity', value: '100% natural sodium chloride crystal' }
+        ],
+        applications: [
+          'High-end culinary gourmet & BBQ hardware brands',
+          'Restaurant tabletop live searing & cold sashimi platters',
+          'Halotherapy salt cave & luxury sauna architectural walls',
+          'Premium culinary gifting & holiday cookware sets'
+        ],
+        imageUrl: '/images/pink_salt_banner.jpg'
       },
       {
         id: 'salt-animal-licks',
@@ -221,10 +262,10 @@ export const CATEGORIES: Category[] = [
     faqs: [
       {
         question: 'What is the minimum order quantity (MOQ) for Himalayan Pink Salt exports?',
-        answer: 'Our standard MOQ for edible fine/coarse salt and animal licks is 1 x 20ft Full Container Load (FCL), which accommodates approximately 24 to 27 Metric Tons depending on whether the cargo is palletized or floor-loaded. For handcrafted salt lamps, our MOQ is 500 units or a mixed container load with salt products.'
+        answer: 'Our standard MOQ for edible fine/coarse salt, cooking tiles, and animal licks is 1 x 20ft Full Container Load (FCL), which accommodates approximately 24 to 27 Metric Tons. For handcrafted salt lamps, our MOQ is 500 units or a mixed container load with salt products.'
       },
       {
-        question: 'Can Utility Home provide private label packaging and custom retail branding?',
+        question: 'Can Utility Home Exports provide private label packaging and custom retail branding?',
         answer: 'Yes. We provide complete OEM private labeling. We produce stand-up kraft pouches, laminated poly bags, glass grinders with ceramic mills, shakers, and custom-branded master cartons with your barcodes, nutritional tables, and regional language compliance.'
       },
       {
@@ -238,103 +279,20 @@ export const CATEGORIES: Category[] = [
     ]
   },
   {
-    id: 'cat-surgical-instruments',
-    slug: 'surgical-instruments',
-    title: 'Surgical Instruments',
-    subtitle: 'Precision Medical & Surgical Instruments Engineered to ISO 13485 & CE MDR Standards',
-    status: 'active',
-    badgeLabel: 'Medical Division · Active Export',
-    shortDescription: 'High-precision German-grade stainless steel surgical, dental, ophthalmic, and orthopedic instruments manufactured in the Sialkot & Gujranwala medical cluster.',
-    fullDescription: 'Utility Home Exports manufactures and supplies international hospital systems, clinical distributors, and health procurement bodies with premium-grade surgical instruments. Forged from ASTM F899 / DIN 1.4021 martensitic stainless steels, passivated per ASTM A967, and certified to ISO 13485:2016 and CE Medical Device Regulation standards.',
-    heroImage: '/images/surgical_hero_banner.jpg',
-    origin: 'Sialkot & Gujranwala Surgical Engineering Zone, Punjab, Pakistan',
-    exportPorts: ['Sialkot International Airport (SKT)', 'Lahore Airport (LHE)', 'Port Qasim (PKBQM)'],
-    leadTime: '10–14 Days Production Dispatch',
-    capacity: '150,000+ Units per Month',
-    certifications: ['ISO 13485:2016', 'CE Mark (MDR 2017/745)', 'FDA Listed', 'ASTM F899', 'ISO 7153-1'],
-    packagingTypes: [
-      {
-        title: 'Individual Sterile & Non-Sterile Medical Pouches',
-        description: 'Tyvek/Film peel pouches with chemical sterilization indicator dots and laser-etched UDI barcode integration.',
-        capacity: 'Single Unit / 5 Pcs Pack'
-      },
-      {
-        title: 'Custom Velvet Presentation Boxes & Surgical Kits',
-        description: 'Hard-shell presentation cases lined with plush anti-tarnish velvet, tailored cutouts, and OEM gold foil branding.',
-        capacity: '5 to 25 Instrument Sets'
-      },
-      {
-        title: 'Stainless Wire Mesh Sterilization DIN Cassettes',
-        description: 'Autoclavable electropolished stainless mesh trays with high-temperature medical silicone hold-down brackets.',
-        capacity: 'Hospital Central Sterile Supply Department (CSSD)'
-      }
-    ],
-    variants: [],
-    faqs: [
-      {
-        question: 'What steel alloys do you utilize for surgical cutting instruments?',
-        answer: 'We use premium AISI 420 (DIN 1.4021) high-carbon martensitic stainless steel heat-treated to Rockwell HRC 54-56 for razor-sharp edge retention, alongside AISI 316L for corrosion-resistant retractor bodies and ASTM Grade 5 titanium for microsurgical instruments.'
-      },
-      {
-        question: 'Can you manufacture custom instruments with our hospital brand or logo?',
-        answer: 'Yes. We offer high-precision fiber laser engraving for private label branding, CE marks, hospital department initials, lot numbers, and GS1 2D DataMatrix barcodes for sterile processing traceability.'
-      }
-    ]
-  },
-  {
-    id: 'cat-citrus-fruits',
-    slug: 'citrus-kinnow',
-    title: 'Citrus Fruits & Kinnow Mandarins',
-    subtitle: 'High-Brix, Juice-Dense Citrus Packed for Global Cold Chain Maritime Export',
-    status: 'upcoming',
-    badgeLabel: 'Pipeline Category · Harvest Pre-booking Open',
-    shortDescription: 'World-renowned Pakistani Kinnow mandarins known for high juice content, vibrant golden-orange peel, and sweet-tart flavor balance. Processed through modern waxing and fungicide treatment lines.',
-    fullDescription: 'Utility Home is expanding its agricultural export infrastructure with dedicated citrus sorting and cold storage facilities in the fertile Indus basin. We supply Grade-A Kinnow mandarins specifically conditioned for 40ft High-Cube refrigerated (reefer) containers maintaining precise controlled atmospheres throughout the 25–40 day transit window.',
-    heroImage: 'https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=1600&q=85',
-    origin: 'Sargodha & Bhalwal Citrus Belts',
-    exportPorts: ['Port Qasim (PKBQM) Reefer Terminal'],
-    leadTime: 'Harvest season: November through April',
-    capacity: '3,000+ Metric Tons per Season',
-    certifications: ['GlobalGAP Compliant', 'Phytosanitary Certified', 'Cold Chain Monitored', 'HACCP'],
-    packagingTypes: [
-      {
-        title: 'Telescopic Corrugated Export Cartons (Top & Bottom)',
-        description: 'Moisture-resistant heavy burst-strength corrugated boxes designed to withstand refrigerated humidity without collapsing during ocean freight.',
-        capacity: '10 kg & 13 kg Net Box Weight'
-      },
-      {
-        title: 'Plastic Crates for Regional Shipments',
-        description: 'Ventilated returnable or one-way food grade crates for expedited transit to GCC and Central Asian destinations.',
-        capacity: '12 kg Net'
-      }
-    ],
-    variants: [],
-    faqs: [
-      {
-        question: 'When is the export season for Kinnow mandarins?',
-        answer: 'The prime harvest and export window runs annually from late November through April. We accept pre-season contracts starting August each year.'
-      },
-      {
-        question: 'How are the fruits treated for pest control and shelf life?',
-        answer: 'All fruits undergo automated washing, hot water dipping, food-grade waxing, antifungal sorting, and precision sizing into 42, 48, 54, 60, and 72 caliber counts.'
-      }
-    ]
-  },
-  {
-    id: 'cat-fresh-vegetables',
+    id: 'cat-fresh-produce',
     slug: 'fresh-vegetables',
-    title: 'Fresh Vegetables Export',
-    subtitle: 'Farm-Fresh Premium Quality Vegetables Exported Worldwide',
+    title: 'Fresh Agricultural Produce',
+    subtitle: 'Farm-Fresh Export Vegetables & Agricultural Commodities from Fertile Punjab Agro Belts',
     status: 'active',
-    badgeLabel: 'Produce Export Line · Active',
-    shortDescription: 'Export-grade Red & Yellow Onions, Fresh Potatoes (Mozika/Dutch), Green Chilies, Garlic & Ginger, and Seasonal Produce packed in ventilated mesh & cold-chain cartons.',
-    fullDescription: 'Utility Home Exports operates direct farm-to-port supply pipelines for premium fresh vegetables sourced from fertile agricultural basins across Gujranwala and Punjab, Pakistan. Graded, cleaned, phytosanitary certified, and dispatched in climate-controlled reefer containers and air cargo.',
-    heroImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1600&q=85',
-    origin: 'Gujranwala, Okara & Punjab Agricultural Belts, Pakistan',
-    exportPorts: ['Karachi Port (PKKHI) Reefer Berths', 'Air Cargo Hubs'],
+    badgeLabel: 'Core Export Line 2 · Active',
+    shortDescription: 'Export-grade Fresh Garlic (NARC-G1), Fresh Ginger Rhizomes, Red Onions, Export Potatoes (Mozika/Asterix), Pungent Green & Red Chillies, and Seasonal Root Vegetables packed in ventilated cold-chain containers.',
+    fullDescription: 'Utility Home Exports operates direct farm-to-port supply pipelines for premium fresh vegetables sourced from the fertile agricultural river basins of Jhelum, Okara, and the Punjab agrarian belt in Pakistan. Graded, hydro-cooled, mechanically washed, phytosanitary certified by the Department of Plant Protection (DPP), and dispatched in temperature-controlled reefer containers (40ft High Cube) and express air cargo.',
+    heroImage: '/images/seasonal_veg_herbs.jpg',
+    origin: 'Jhelum, Okara & Punjab Agricultural Belts, Pakistan',
+    exportPorts: ['Karachi Port (PKKHI) Reefer Berths', 'Port Qasim (PKBQM)', 'Jinnah Int Airport (Air Cargo)'],
     leadTime: 'Harvest & Packhouse Loading in 24–48 Hours',
     capacity: '2,500+ Metric Tons / Month',
-    certifications: ['GlobalGAP Compliant', 'DPP Phytosanitary Certified', 'ISO 22000 (HACCP)', 'MRL Tested'],
+    certifications: ['GlobalGAP Compliant', 'DPP Phytosanitary Certified', 'ISO 22000 (HACCP)', 'MRL Tested', 'Official Halal Certified'],
     packagingTypes: [
       {
         title: '5kg to 50kg Heavy-Duty Leno Mesh Sacks',
@@ -343,79 +301,523 @@ export const CATEGORIES: Category[] = [
       },
       {
         title: 'Ventilated Telescopic Corrugated Export Boxes',
-        description: 'Moisture-resistant 5-ply cartons with air circulation holes for chilies, capsicum, tomatoes, and okra.',
-        capacity: '4kg, 5kg, 10kg'
-      }
-    ],
-    variants: [],
-    faqs: [
-      {
-        question: 'What is the shipping temperature for fresh onions and potatoes?',
-        answer: 'Fresh onions are shipped between 0°C to +4°C with 65-70% RH in ventilated reefers, while fresh table and seed potatoes are maintained at +3°C to +8°C with sprout inhibitors.'
+        description: 'Moisture-resistant 5-ply cartons with air circulation holes for chillies, ginger, and fresh roots.',
+        capacity: '4kg, 5kg, 10kg, 13.6kg (30 lbs)'
       },
       {
-        question: 'Do you provide official Phytosanitary certificates?',
-        answer: 'Yes. 100% of consignments receive physical inspection and Phytosanitary certificates issued by the Department of Plant Protection (DPP), Ministry of National Food Security & Research.'
+        title: 'Heavy-Duty Air-Cooled Plastic Crates',
+        description: 'Stackable food-grade plastic field crates for delicate root and rhizome transits.',
+        capacity: '10kg & 15kg Net Weight'
+      }
+    ],
+    variants: [
+      {
+        id: 'veg-garlic-narc-g1',
+        name: 'Fresh Whole White Garlic (NARC-G1 Export Grade)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'bulbs',
+        tagline: 'Jumbo Size, High-Aroma White Garlic Bulbs with High Allicin Potency',
+        description: 'Pakistan’s premier NARC-G1 garlic cultivar celebrated for colossal bulb diameters (55mm to 75mm+), tight snow-white skins, and high allicin therapeutic content. Naturally field-cured and graded to zero defects.',
+        hsCode: '0703.20.00',
+        moq: '1 x 40ft High Cube Reefer (Approx. 26–28 Metric Tons)',
+        grainSizes: [
+          'Jumbo Extra Grade: 60mm - 75mm+ bulb caliber',
+          'Standard Export Grade: 50mm - 60mm caliber',
+          'Clove Count: 6 to 10 massive dense cloves per bulb'
+        ],
+        colorGrades: ['Pure Snow White', 'Natural Sun-Cured Ivory'],
+        certifications: ['DPP Phytosanitary', 'GlobalGAP Compliant', 'HACCP Certified', 'MRL Pesticide Free'],
+        packagingOptions: [
+          '10kg Heavy-Duty Ventilated Red/White Leno Mesh Bags',
+          '10kg Corrugated Master Cartons with internal air vents',
+          'Retail Pre-Packs: 3 pcs & 5 pcs with barcode label'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '12–14 Metric Tons in 20ft Reefer',
+          fortyFtFcl: '26–28 Metric Tons in 40ft High Cube Reefer',
+          palletized: '22 to 24 Pallets (Standard Euro / Industrial)'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '-1°C to +1°C / 65–70% RH' },
+          { label: 'Curing & Dryness', value: 'Sun-cured, dried tight necks, pulp moisture < 65%' },
+          { label: 'Shelf Life', value: '8 to 10 Months in controlled atmosphere' },
+          { label: 'Incoterms', value: 'FOB Karachi / CIF Destination Ports' }
+        ],
+        applications: [
+          'Commercial supermarket retail produce chains',
+          'Garlic paste, dehydration, and powder extraction plants',
+          'Food spice blends and industrial kitchen supply',
+          'Pharmaceutical allicin extraction processing'
+        ],
+        imageUrl: '/images/garlic_bulbs_export.jpg'
+      },
+      {
+        id: 'veg-ginger-rhizomes',
+        name: 'Fresh Ginger Rhizomes (Export Grade)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'rhizomes',
+        tagline: 'Bold, Plump Hands of Fresh Agricultural Ginger (Washed & Unwashed)',
+        description: 'High-aroma, fiber-balanced fresh ginger rhizomes available thoroughly hydro-washed (soil-free, air-dried) or in natural unwashed farm state. Selected for thick fleshy hands, natural golden sheen, plump joints, and high gingerol essential oil potency.',
+        hsCode: '0910.11.00',
+        moq: '5,000 kg (Air Freight) or 1 x 40ft FCL Reefer (24–26 MT)',
+        grainSizes: [
+          'Hand Weights: 150g, 200g, 250g+ thick mature hands',
+          'Fat Finger Caliber: Min 25mm thickness at joints',
+          'Washing States: 100% Soil-free Hydro-washed OR Natural Unwashed'
+        ],
+        colorGrades: ['Bright Golden Yellow', 'Natural Farm Buff'],
+        certifications: ['DPP Phytosanitary Certificate', 'ISO 22000 (HACCP)', 'Residue Screened'],
+        packagingOptions: [
+          '10kg & 13.6kg (30 lbs) Heavy-Duty Air-Cooled Plastic Crates',
+          '10kg Corrugated Master Cartons with dual ventilation slots',
+          'ISPM-15 Heat-Treated Wooden Export Crates for air & sea pallets'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '12 MT Reefer',
+          fortyFtFcl: '24–26 MT in 40ft Reefer (+12°C non-chilling)',
+          palletized: '20 to 22 Pallets with corner braces'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '+12°C to +14°C / 85% RH (Non-chilling Reefer)' },
+          { label: 'Shelf Life', value: '60 to 90 Days under recommended storage' },
+          { label: 'Moisture Variation', value: '< 12% moisture variation, zero rot or mold' },
+          { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Major Seaports' }
+        ],
+        applications: [
+          'Fresh produce sections of international supermarket chains',
+          'Ginger essential oil, oleoresin, and gingerol pharmaceutical extraction',
+          'Beverage, ginger ale, and tea blending manufacturing',
+          'Culinary foodservice and wholesale produce markets'
+        ],
+        imageUrl: '/images/fresh_ginger_export.jpg'
+      },
+      {
+        id: 'veg-turnips',
+        name: 'Fresh Organic Purple-Top Turnips',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'roots',
+        tagline: 'Crisp, Tender Alluvial Winter Turnips with Vibrant Purple Crowns',
+        description: 'Crisp, sweet, and succulent winter turnips grown in fertile alluvial river loam. Carefully graded for bright purple crowns, pristine snow-white base, and tender, non-fibrous edible texture. Hydro-cooled immediately after harvest to preserve garden freshness.',
+        hsCode: '0706.90.00',
+        moq: '2,000 kg (Air Freight) or 1 x 40ft Reefer (24 Metric Tons)',
+        grainSizes: [
+          'Standard Caliber: 50mm - 70mm diameter',
+          'Commercial Caliber: 70mm - 90mm diameter',
+          'Root Trimming: Clean trimmed taproot, tops removed'
+        ],
+        colorGrades: ['Vibrant Purple Top with Creamy White Base'],
+        certifications: ['DPP Phytosanitary', 'Zero Chemical Residue', 'GlobalGAP Standards'],
+        packagingOptions: [
+          '5kg & 10kg Ventilated Telescopic Corrugated Boxes',
+          '10kg Breathable Mesh Bags with internal protection film',
+          'Air Cargo insulated cartons for express deliveries'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '12 MT Reefer',
+          fortyFtFcl: '24–26 MT Reefer (0°C to +2°C)',
+          palletized: '20 Pallets with air circulation channels'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '0°C to +2°C / 90–95% RH' },
+          { label: 'Flesh Texture', value: 'Solid crisp white flesh, 100% woodiness-free' },
+          { label: 'Preparation', value: 'Mechanically washed, root hairs trimmed, hydro-cooled' },
+          { label: 'Transit Window', value: '30 to 45 Days shelf life under reefer transit' }
+        ],
+        applications: [
+          'Fresh vegetable wholesale markets and grocery retail',
+          'Pickling and fermentation food processing industries',
+          'Institutional airline catering and foodservice'
+        ],
+        imageUrl: '/images/fresh_turnips_export.jpg'
+      },
+      {
+        id: 'veg-red-onions',
+        name: 'Premium Red Onions (Export Graded)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'bulbs',
+        tagline: 'Pungent, Deep-Red Multi-Layered Onions with Thick Outer Cured Husks',
+        description: 'Export-grade Pakistani red onions sourced from renowned agricultural tracts in Sindh and Punjab. Features tight papery skins, intense aromatic pungency, and natural curing ensuring long-distance maritime voyage without premature sprouting.',
+        hsCode: '0703.10.00',
+        moq: '1 x 40ft High Cube Reefer (28–29 Metric Tons)',
+        grainSizes: [
+          'Medium Caliber: 45mm - 60mm',
+          'Large Caliber: 60mm - 80mm+',
+          'Jumbo Caliber: 80mm - 100mm'
+        ],
+        colorGrades: ['Deep Crimson Red', 'Dark Purple-Red'],
+        certifications: ['DPP Phytosanitary Certified', 'GlobalGAP', 'HACCP'],
+        packagingOptions: [
+          '10kg, 20kg & 25kg Red Leno Mesh Bags',
+          '50kg Heavy-Duty Jute Sacks for regional maritime routes',
+          'Palletized and stretch-strapped container loads'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '14 Metric Tons',
+          fortyFtFcl: '28–29 Metric Tons in 40ft Reefer / Ventilated Box',
+          palletized: '22 to 24 Industrial Pallets'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '0°C to +4°C / 65–70% RH' },
+          { label: 'Skin Layers', value: '3 to 4 dry cured outer protective husks' },
+          { label: 'Shelf Life', value: '90 to 120 Days in cold storage' },
+          { label: 'Incoterms', value: 'FOB Karachi / CIF Major Destination Ports' }
+        ],
+        applications: [
+          'Supermarket retail, bulk wholesale produce hubs',
+          'Food processing, onion powder, and dehydrated flakes',
+          'Commercial catering and international restaurants'
+        ],
+        imageUrl: '/images/onions_potatoes_export.jpg'
+      },
+      {
+        id: 'veg-potatoes',
+        name: 'Fresh Export Potatoes (Mozika, Asterix & Lady Rosetta)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'tubers',
+        tagline: 'Smooth-Skinned Table and Industrial Chip Potatoes with High Dry Matter',
+        description: 'Export-quality Dutch and local potato cultivars grown in fertile agro-tracts. High dry-matter content (ideal for French fries and crisps), shallow eyes, smooth blemish-free skin, and treated with approved natural sprout inhibitors.',
+        hsCode: '0701.90.00',
+        moq: '1 x 40ft High Cube Reefer (28–30 Metric Tons)',
+        grainSizes: [
+          'Small / Baby Caliber: 35mm - 45mm',
+          'Medium Table Grade: 45mm - 60mm',
+          'Large / Jumbo Processing Grade: 60mm - 85mm+'
+        ],
+        colorGrades: ['Golden Yellow Skin (Mozika)', 'Red Skin (Asterix / Cardinal)'],
+        certifications: ['Phytosanitary Clearance', 'GlobalGAP Verified', 'Brown Rot Free Certified'],
+        packagingOptions: [
+          '10kg, 25kg & 50kg Yellow / Red Breathable Mesh Sacks',
+          '10kg Ventilated Corrugated Master Cartons',
+          '1,000kg Bulk Big Bags for Industrial Potato Chip Factories'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '14 MT',
+          fortyFtFcl: '28–30 MT in 40ft Reefer (+6°C to +8°C)',
+          palletized: '24 Pallets'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '+6°C to +8°C / 85–90% RH' },
+          { label: 'Dry Matter', value: '20% to 24% (Superior frying quality)' },
+          { label: 'Sprout Control', value: 'CIPC / natural essential oil anti-sprout treated' },
+          { label: 'Shelf Life', value: 'Up to 6 Months under controlled refrigeration' }
+        ],
+        applications: [
+          'French fries and potato chips manufacturing companies',
+          'Direct retail fresh potato distribution',
+          'Dehydrated potato flakes and starch extraction'
+        ],
+        imageUrl: '/images/onions_potatoes_export.jpg'
+      },
+      {
+        id: 'veg-chillies',
+        name: 'Pungent Green & Red Hot Chillies',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'peppers',
+        tagline: 'High-Scoville Green & Red Hot Chillies with Glossy Skin & Intact Stems',
+        description: 'Vibrant, fiery fresh hot chillies harvested with green stems intact. Renowned for sharp capsaicin heat, crisp snap, and extended post-harvest shelf life under ventilated cold-chain transit.',
+        hsCode: '0709.60.00',
+        moq: '2,000 kg (Air Cargo) or 1 x 40ft Reefer (18–20 MT)',
+        grainSizes: [
+          'Length: 6cm - 10cm slender pods',
+          'Diameter: 8mm - 14mm with attached green calyx',
+          'Scoville Heat Units: 35,000 to 65,000 SHU'
+        ],
+        colorGrades: ['Deep Emerald Green', 'Fiery Dark Red'],
+        certifications: ['DPP Phytosanitary Certificate', 'MRL Residue Cleared', 'HACCP'],
+        packagingOptions: [
+          '4kg & 5kg Ventilated Corrugated Export Boxes',
+          '10kg Plastic Crates with air-flow holes',
+          'Pre-packed 250g / 500g perforated retail punnets'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '8–10 MT',
+          fortyFtFcl: '18–20 MT in 40ft Reefer (+8°C to +10°C)',
+          palletized: 'Custom stacked with protective dunnage'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '+8°C to +10°C / 90% RH' },
+          { label: 'Heat Index', value: 'Medium-High to High Pungency (High Capsaicin)' },
+          { label: 'Stem State', value: '100% Fresh green intact stems' },
+          { label: 'Shelf Life', value: '21 to 28 Days in cold chain' }
+        ],
+        applications: [
+          'Fresh grocery retail and wholesale chili markets',
+          'Hot sauce, chili paste, and condiment manufacturing',
+          'Oleoresin capsaicin extraction industries'
+        ],
+        imageUrl: '/images/seasonal_veg_herbs.jpg'
+      }
+    ],
+    faqs: [
+      {
+        question: 'What refrigerated container parameters are maintained during ocean voyages?',
+        answer: 'Each vegetable species has precise pre-cooling and container transit setpoints. Garlic and onions are shipped at -1°C to +4°C (65–70% RH), ginger at +12°C to +14°C (non-chilling), potatoes at +6°C to +8°C, and fresh turnips/carrots at 0°C to +2°C with high humidity.'
+      },
+      {
+        question: 'Do you provide official Phytosanitary certificates with every vegetable shipment?',
+        answer: 'Yes. 100% of our vegetable consignments undergo physical inspection by the Department of Plant Protection (DPP), Ministry of National Food Security & Research, Pakistan. Every shipment includes official Phytosanitary certificates and lab residue test reports.'
+      },
+      {
+        question: 'What is the fastest delivery route for fresh produce?',
+        answer: 'For perishable items like fresh chillies, turnips, or ginger samples, we operate direct commercial air cargo from Lahore (LHE) and Karachi (KHI) airports with 24–48 hour touchdown in Dubai, Doha, London, Frankfurt, and New York. For full container maritime shipments, transit from Karachi Port (PKKHI) to Jebel Ali is only 3–5 days, and to Rotterdam 22–26 days.'
       }
     ]
   },
   {
-    id: 'cat-fresh-produce',
-    slug: 'fresh-produce',
-    title: 'Fresh Mangoes & Premium Produce',
-    subtitle: 'Hot Water Treated (HWT) Export-Grade Mangoes & Seasonal Horticultural Goods',
-    status: 'upcoming',
-    badgeLabel: 'Pipeline Category · Seasonal Pipeline',
-    shortDescription: 'World-famous Sindhri, Chaunsa, and Anwar Ratol mango varieties known for unparalleled aroma and silky pulp, processed through hot water treatment facilities approved for EU, UK, and GCC entry.',
-    fullDescription: 'Complementing our mineral export division, Utility Home’s produce department connects certified commercial orchards directly to international supermarket chains and wholesale food terminals. Every consignment is packed in foam protective sleeves within ventilated cartons and transported via temperature-controlled air freight and marine reefers.',
-    heroImage: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=1600&q=85',
-    origin: 'Multan, Rahim Yar Khan & Mirpur Khas Orchards',
-    exportPorts: ['Karachi Port (PKKHI) & Jinnah Int Airport (KHI) Air Cargo'],
-    leadTime: 'Season: May through September',
-    capacity: '1,200+ Metric Tons per Season',
-    certifications: ['GlobalGAP', 'EU HWT Protocol Approved', 'Department of Plant Protection (DPP)'],
+    id: 'cat-surgical-instruments',
+    slug: 'surgical-instruments',
+    title: 'Surgical & Dental Instruments',
+    subtitle: 'Precision Medical, Surgical & Dental Hand Instruments Crafted to ISO 13485 & CE Standards',
+    status: 'active',
+    badgeLabel: 'Core Export Line 3 · Active',
+    shortDescription: 'Precision medical instruments forged from medical-grade German and French stainless steel (AISI 410, 420, 304). Complete product lines for general surgery, orthopedic kits, dental extraction, and tungsten carbide instruments.',
+    fullDescription: 'Utility Home Exports supplies world-class medical and surgical hand instruments forged in the world’s renowned surgical manufacturing hub of Sialkot & Jhelum, Punjab, Pakistan. Every instrument is crafted from certified medical-grade stainless steel, precision CNC-milled, hand-honed by master craftsmen, and subjected to ultrasonic cleaning, passivation, and boil tests to guarantee 100% corrosion resistance, flawless tactile feedback, and lifelong autoclave durability.',
+    heroImage: '/images/surgical_hero_banner.jpg',
+    origin: 'Sialkot & Jhelum Surgical Manufacturing Corridors, Punjab, Pakistan',
+    exportPorts: ['Sialkot Dry Port (PKSDT)', 'Karachi Port (PKKHI)', 'Sialkot International Airport (SKT Air Cargo)'],
+    leadTime: '7–14 Days for Standard Kits / 21–30 Days for Custom OEM Tooling',
+    capacity: '120,000+ Pieces / Month',
+    certifications: ['ISO 13485:2016 Medical Devices', 'ISO 9001:2015', 'CE Mark Medical Class I', 'US FDA Compliant', 'cGMP Standard'],
     packagingTypes: [
       {
-        title: 'Export Corrugated Gift Cartons with Individual Foam Sleeves',
-        description: 'Designed for retail presentation with air circulation eyelets and shock-absorbing protective foam nets on each individual fruit.',
-        capacity: '2 kg, 4 kg & 5 kg Net'
+        title: 'Individual Sterile & Non-Sterile Peel Pouches',
+        description: 'Medical-grade Tyvek / transparent film peel pouches with EO and Steam sterilization indicator dots.',
+        capacity: 'Single Piece / Tool Set'
+      },
+      {
+        title: 'Custom Velvet & Leatherette Surgical Instrument Kits',
+        description: 'Custom zippered leatherette cases with elastic instrument retention loops, color-coded velvet lining, and laser-engraved branding.',
+        capacity: '5 to 30 Instruments per Kit'
+      },
+      {
+        title: 'Rigid Anodized Aluminum Sterilization Trays & Cassettes',
+        description: 'Autoclavable perforated aluminum cassettes with silicone racks engineered for dental clinics and operating theaters.',
+        capacity: '5, 10, 20 Instruments per Cassette'
+      },
+      {
+        title: 'Drop-Tested Corrugated Export Master Cartons',
+        description: 'Double-walled cartons with internal bubble shroud and desiccants to prevent maritime humidity during transit.',
+        capacity: '50 to 500 Pieces per Master Carton'
       }
     ],
-    variants: [],
-    faqs: [
+    chemicalAnalysis: [
+      { parameter: 'Stainless Steel Grade', result: 'AISI 420 / 410 / 304 (Martensitic & Austenitic)', standard: 'ASTM F899 / ISO 7153-1' },
+      { parameter: 'Hardness (Rockwell C)', result: 'HRC 48–56 (Cutting Edges & TC Inserts)', standard: 'ISO 7153-1 Specification' },
+      { parameter: 'Corrosion Resistance (Boil Test)', result: 'Zero Rust / Zero Oxidation (Pass)', standard: 'ASTM F1089 Standard Test Method' },
+      { parameter: 'Passivation & Surface Finish', result: 'Full Passivation (Satin Matte / Mirror Polish)', standard: 'ASTM A967' },
+      { parameter: 'Autoclave Endurance', result: 'Guaranteed 500+ Autoclave Cycles at 134°C', standard: 'EN 285 Hospital Standard' }
+    ],
+    variants: [
       {
-        question: 'Which mango varieties are available for export?',
-        answer: 'We specialize in early-season Sindhri (May-June), mid-season Chaunsa (June-August), and late-season White Chaunsa and Anwar Ratol (July-September).'
-      }
-    ]
-  },
-  {
-    id: 'cat-industrial-minerals',
-    slug: 'industrial-salts',
-    title: 'Industrial & De-Icing Mineral Salts',
-    subtitle: 'High-Purity Bulk Mineral Salts for Water Softening, Tanning & Highway Safety',
-    status: 'upcoming',
-    badgeLabel: 'Pipeline Category · B2B Bulk Contracts',
-    shortDescription: 'Screened raw mineral salts for industrial chemical plants, chlor-alkali production, highway winter de-icing, and commercial water treatment systems.',
-    fullDescription: 'For municipal departments, chemical manufacturers, and highway maintenance authorities requiring dry bulk vessel cargo or containerized tonnage. Available in unwashed coarse rock or kiln-dried granular specifications with moisture resistance.',
-    heroImage: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=85',
-    origin: 'Salt Range Formations',
-    exportPorts: ['Port Qasim Dry Bulk Berths & Container Terminals'],
-    leadTime: 'Continuous All-Year Supply',
-    capacity: '10,000+ Metric Tons / Month',
-    certifications: ['ISO 9001:2015', 'ASTM / European Highway De-Icing Standards'],
-    packagingTypes: [
+        id: 'surg-ortho-dental-kit',
+        name: 'Orthopedic & Dental Extraction Tool Sets',
+        categorySlug: 'surgical-instruments',
+        subcategory: 'dental',
+        tagline: 'Precision Dental Elevators, Extraction Forceps & Orthopedic Bone Instruments',
+        description: 'Comprehensive sets of dental extraction forceps (English and American patterns), root tip elevators, bone curettes, rongeurs, and luxators. Ergonomically knurled handles ensure non-slip grip and delicate tactile feedback during oral surgery.',
+        hsCode: '9018.49.00 / 9018.90.00',
+        moq: '50 Sets or 200 Individual Pieces',
+        grainSizes: [
+          'Forceps Patterns: #150, #151, #1, #7, #17, #18L/R, #23 Cowhorn',
+          'Elevator Tips: Straight, Curved, Cryer (Pairs), Heidbrink, Coupland',
+          'Handle Finishes: Hollow Knurled Ergonomic, Solid Satin Grip'
+        ],
+        colorGrades: ['Anti-Glare Satin Matte', 'High-Luster Mirror Polish', 'Titanium Gold Coated'],
+        certifications: ['CE Mark Class I', 'ISO 13485:2016', 'FDA Registered', 'Boil Test Cleared'],
+        packagingOptions: [
+          'Autoclavable Silicone-Racked Stainless Cassettes',
+          'Fine Leatherette Zippered Instrument Wallets with Custom Logo',
+          'Individual Sealed Medical Pouches'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'Approx. 25,000 Kits (Weight/Volume balanced)',
+          fortyFtFcl: 'Approx. 50,000 Kits',
+          palletized: 'Shrink-wrapped cartons on heat-treated pallets'
+        },
+        keySpecs: [
+          { label: 'Material', value: 'High-Tensile Martensitic Stainless Steel (AISI 420B)' },
+          { label: 'Jaw Gripping', value: 'Micro-serrated anatomically contoured beak profiles' },
+          { label: 'Autoclavable', value: 'Fully sterilizable up to 134°C (273°F)' },
+          { label: 'Warranty', value: '5-Year Manufacturer Warranty against corrosion & material defects' }
+        ],
+        applications: [
+          'Dental clinics, orthodontics practices, and oral surgery hospitals',
+          'Medical university dental colleges and training academies',
+          'Private-label dental distributor and catalog supply houses'
+        ],
+        imageUrl: '/images/ortho_dental_kit.jpg'
+      },
       {
-        title: 'Breakbulk Vessel Charter & FIBC 1.2MT Jumbo Bags',
-        description: 'Heavy duty discharge bags or direct hold loading for high-tonnage consignments.',
-        capacity: '1,200kg Bags or Vessel Hold'
+        id: 'surg-hemostatic-forceps',
+        name: 'Hemostatic Forceps & Artery Clamps',
+        categorySlug: 'surgical-instruments',
+        subcategory: 'hemostatic',
+        tagline: 'Precision Box-Joint Artery Clamps with Multi-Position Locking Ratchets',
+        description: 'Standard surgical hemostats including Halsted Mosquito, Crile, Kelly, Rochester-Péan, and Mixter right-angle artery forceps. Designed with smooth, interlocking ratchets and precision serrations that occlude bleeding blood vessels without severing delicate tissue.',
+        hsCode: '9018.90.84',
+        moq: '200 Pieces (Mixed Sizes Supported)',
+        grainSizes: [
+          'Mosquito Hemostat: 10cm, 12.5cm (Straight & Curved)',
+          'Kelly / Crile Forceps: 14cm, 16cm (Straight & Curved)',
+          'Rochester-Péan Heavy Clamps: 18cm, 20cm, 24cm'
+        ],
+        colorGrades: ['Satin Glare-Free Medical Finish', 'Micro-Sandblasted Non-Reflective'],
+        certifications: ['ISO 13485', 'CE Medical Device Directive', 'ASTM F899 Passivation'],
+        packagingOptions: [
+          'Individual Tyvek Pouch with Barcode Label',
+          'Box Packs of 10 Units with Protective Tip Sleeves',
+          'Master Corrugated Shipping Cartons'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'Approx. 100,000 Units in master cartons',
+          fortyFtFcl: 'Approx. 220,000 Units',
+          palletized: 'Air Cargo skid / palletized maritime shipment'
+        },
+        keySpecs: [
+          { label: 'Joint Design', value: 'Precision German Box-Joint (interlocking smooth hinge)' },
+          { label: 'Ratchet Mechanism', value: '3-stage smooth locking catch with calibrated spring tension' },
+          { label: 'Serration Type', value: 'Transverse parallel interlocking serrations' },
+          { label: 'Steel Grade', value: 'AISI 420 Japanese/German stainless steel' }
+        ],
+        applications: [
+          'Hospital general operating rooms and trauma emergency suites',
+          'Veterinary surgery clinics and animal hospitals',
+          'Disaster relief and military field medical supply kits'
+        ],
+        imageUrl: '/images/hemostatic_forceps.jpg'
+      },
+      {
+        id: 'surg-scalpel-retractors',
+        name: 'Surgical Scalpels, Precision Knives & Tissue Retractors',
+        categorySlug: 'surgical-instruments',
+        subcategory: 'cutting',
+        tagline: 'Standard Scalpel Handles & Handheld Self-Retaining Wound Retractors',
+        description: 'Medical surgical scalpel handles (#3, #4, #7, and micro-handles) compatible with all standard surgical blades (#10, #11, #15, #20, #22), paired with tissue retractors including Senn-Miller, Volkmann, Army-Navy, and Weitlaner self-retaining retractors.',
+        hsCode: '9018.90.00',
+        moq: '150 Pieces',
+        grainSizes: [
+          'Scalpel Handles: #3 (Fit blades 10-15), #4 (Fit blades 20-25), #7 Slender',
+          'Retractors: Senn-Miller 16cm (3-prong), Army-Navy 21cm (Pair)',
+          'Self-Retaining: Weitlaner 2x3 & 3x4 sharp/blunt prongs'
+        ],
+        colorGrades: ['Satin Finished Medical Stainless Steel'],
+        certifications: ['CE Mark Class I', 'ISO 13485:2016', 'Boil & Corrosion Resistant'],
+        packagingOptions: [
+          'Individual Protective Sleeve in Heat-Sealed PE Medical Bag',
+          'Master Outer Carton with Desiccant Packets',
+          'Custom Importer Laser Marking (Logo, Part Number, CE mark)'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'Full maritime container loads supported',
+          fortyFtFcl: 'Combined air cargo / maritime freight',
+          palletized: 'Custom packed to importer specifications'
+        },
+        keySpecs: [
+          { label: 'Blade Fitment', value: 'Precision CNC-machined blade locking channel (zero play)' },
+          { label: 'Scale Markings', value: 'Metric cm/mm ruler graduation laser engraved on handle' },
+          { label: 'Prong Alignment', value: 'Hand-aligned sharp and blunt prongs with rounded edges' },
+          { label: 'Finish', value: 'Anti-glare electro-polished satin finish' }
+        ],
+        applications: [
+          'Dermatology, plastic surgery, and general surgical operating suites',
+          'Medical student dissection kits and clinical training sets',
+          'Hospital outpatient wound care departments'
+        ],
+        imageUrl: '/images/scalpel_retractors.jpg'
+      },
+      {
+        id: 'surg-needle-holders',
+        name: 'Tungsten Carbide (TC) Needle Holders',
+        categorySlug: 'surgical-instruments',
+        subcategory: 'holders',
+        tagline: 'Gold-Plated Ring TC Needle Holders for Suture Precision & Zero Slippage',
+        description: 'Industry-standard needle holders featuring high-density Tungsten Carbide (TC) jaw inserts brazed onto surgical stainless bodies. Identified by gold-plated ring handles. Pyramidal serrations grip suture needles firmly without twisting or bending.',
+        hsCode: '9018.90.84',
+        moq: '100 Pieces',
+        grainSizes: [
+          'Mayo-Hegar TC: 14cm, 16cm, 18cm, 20cm, 24cm',
+          'Olsen-Hegar TC (with built-in suture scissors): 14cm, 17cm',
+          'Castroviejo Micro TC (Spring Action with lock): 14cm, 18cm',
+          'Mathieu TC (Plier grip with ratchet): 14cm, 17cm, 20cm'
+        ],
+        colorGrades: ['Satin Stainless with Distinctive 24K Gold-Plated Finger Rings'],
+        certifications: ['ISO 13485:2016', 'CE Mark Class I', 'Hardness Tested (HRC 68–72 TC)'],
+        packagingOptions: [
+          'Individual Hard-Shell Plastic Case with Foam Insert',
+          'Sterilizable Peel Pouches with Lot Numbers',
+          'Master Outer Shipping Cartons'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'Air and Ocean Cargo friendly packaging',
+          fortyFtFcl: 'Standard sea freight container packing',
+          palletized: 'Export palletized with moisture barrier film'
+        },
+        keySpecs: [
+          { label: 'TC Jaw Insert', value: 'Precision brazed Tungsten Carbide tiles (0.4mm / 0.5mm pitch)' },
+          { label: 'Hardness', value: 'HRC 68 to 72 at jaw surface (Virtually wear-free)' },
+          { label: 'Needle Range', value: 'Optimized for sutures 2-0 through 6-0 (Micro sets for 7-0 to 10-0)' },
+          { label: 'Warranty', value: 'Lifetime guarantee on TC insert adhesion' }
+        ],
+        applications: [
+          'Cardiovascular, plastic, and general operating theaters',
+          'Microsurgery and ophthalmology surgical suites',
+          'Emergency suture repair and veterinary surgical clinics'
+        ],
+        imageUrl: '/images/needle_holders.jpg'
+      },
+      {
+        id: 'surg-scissors',
+        name: 'Mayo & Metzenbaum Surgical Dissecting Scissors',
+        categorySlug: 'surgical-instruments',
+        subcategory: 'scissors',
+        tagline: 'Razor-Sharp Beveled Cutting Edges with Micro-Honed Pivot Pins',
+        description: 'Premium surgical scissors manufactured from heat-treated martensitic stainless steel. Available in blunt/blunt, sharp/blunt, and sharp/sharp profiles in both straight and curved patterns. Engineered for clean tissue dissection without snagging or crushing.',
+        hsCode: '9018.90.84',
+        moq: '150 Pieces (Straight / Curved mix)',
+        grainSizes: [
+          'Metzenbaum Tissue Scissors: 14cm, 18cm, 20cm, 23cm (Delicate curved)',
+          'Mayo Sturdy Dissecting Scissors: 14cm, 17cm, 23cm (Straight & Curved)',
+          'Iris Micro Scissors: 11.5cm (Straight & Curved sharp points)',
+          'Lister Bandage Scissors with safety probe nodule: 14cm, 18cm'
+        ],
+        colorGrades: ['Satin Anti-Glare', 'Super-Cut (One micro-serrated blade + black ring)', 'TC Edge (Gold Ring)'],
+        certifications: ['ISO 13485', 'CE Mark Class I', 'Hardness Tested HRC 54–56', 'Passivated ASTM A967'],
+        packagingOptions: [
+          'Individual Tip-Guarded Peel Pack',
+          '10 Pieces per Inner Box with Moisture Desiccant',
+          'Heavy Master Corrugated Shipping Boxes'
+        ],
+        containerStuffing: {
+          twentyFtFcl: 'High-density cargo stuffing',
+          fortyFtFcl: 'Air freight and maritime shipping',
+          palletized: 'ISPM-15 compliant pallets'
+        },
+        keySpecs: [
+          { label: 'Cutting Edge', value: 'Hand-honed razor bevel with zero friction glide' },
+          { label: 'Pivot Screw', value: 'Machined recessed screw with calibrated torque retention' },
+          { label: 'Blade Geometry', value: 'Curved and straight tapered dissecting tips' },
+          { label: 'Corrosion Resistance', value: 'Tested to ASTM F1089 boiling water standard' }
+        ],
+        applications: [
+          'Deep tissue surgical dissection and wound debridement',
+          'Plastic and reconstructive surgical clinics',
+          'Hospital surgical instrument sets and autoclave packs'
+        ],
+        imageUrl: '/images/surgical_scissors.jpg'
       }
     ],
-    variants: [],
     faqs: [
       {
-        question: 'Do you offer vessel chartering for de-icing salt?',
-        answer: 'Yes, for winter contracts (October to March), we coordinate both containerized shipments (25MT per container) and chartered coaster/handysize vessels.'
+        question: 'What stainless steel grades are utilized for your surgical instruments?',
+        answer: 'We exclusively use certified medical-grade stainless steel according to ASTM F899 and ISO 7153-1 standards: AISI 420 (martensitic for scissors and bone cutters), AISI 410 (for forceps and clamps), AISI 304 (for retractor frames and trays), and pure Tungsten Carbide inserts for needle holders and Super-Cut edges.'
+      },
+      {
+        question: 'Can you manufacture custom OEM instrument designs with private branding?',
+        answer: 'Yes. We provide complete OEM contract manufacturing. We can laser-mark your company logo, article reference codes, CE marking, and UDI (Unique Device Identifier) barcodes on every tool, and supply custom-branded leatherette wallets, sterile peel packs, or anodized sterilization cassettes.'
+      },
+      {
+        question: 'What quality testing is performed prior to international dispatch?',
+        answer: 'Every instrument undergoes 100% individual inspection: Rockwell hardness testing, copper sulfate passivation testing (ASTM A967), 30-minute boiling water corrosion testing (ASTM F1089), optical alignment checks, and smooth action testing on all hinges and ratchets.'
       }
     ]
   }

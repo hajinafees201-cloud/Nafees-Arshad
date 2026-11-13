@@ -14,10 +14,13 @@ import {
   FileText, 
   ShieldCheck, 
   HelpCircle,
-  Check
+  Check,
+  AlertCircle,
+  ArrowRight
 } from 'lucide-react';
 import { DESTINATION_PORTS } from '../../data/catalog';
 import { COMPANY_INFO } from '../../data/company';
+import { FORM_ENDPOINTS } from '../../config/forms';
 
 interface ContactRfqPageProps {
   initialProduct?: string;
@@ -53,6 +56,7 @@ export const ContactRfqPage: React.FC<ContactRfqPageProps> = ({
   const [notes, setNotes] = useState<string>('');
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submittedRfq, setSubmittedRfq] = useState<{ id: string; timestamp: string } | null>(null);
 
   // Sync if initial props change
@@ -77,14 +81,50 @@ export const ContactRfqPage: React.FC<ContactRfqPageProps> = ({
 
   const selectedPortObj = DESTINATION_PORTS.find((p) => p.name === destinationPort) || DESTINATION_PORTS[0];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    setTimeout(() => {
-      const rfqId = `RFQ-UH-${Date.now().toString().slice(-6)}`;
-      const timestamp = new Date().toLocaleString();
+    const rfqId = `RFQ-UH-${Date.now().toString().slice(-6)}`;
+    const timestamp = new Date().toLocaleString();
 
+    const payload = {
+      product_category: 'Himalayan Rock Salt & Minerals / Agro Products',
+      product_variant: selectedVariants.join(', '),
+      volume: `${volume} ${volumeUnit}`,
+      incoterm,
+      packaging: packagingPreference,
+      destination_port: destinationPort,
+      company_name: companyName,
+      full_name: fullName,
+      email: businessEmail,
+      whatsapp_phone: phoneNumber,
+      country,
+      special_instructions: notes,
+      shipment_timeline: timeline,
+      sample_required: sampleRequired ? 'Yes' : 'No',
+      oem_branding_required: oemBrandingRequired ? 'Yes' : 'No',
+      rfq_reference: rfqId,
+      submitted_at: timestamp
+    };
+
+    try {
+      const response = await fetch(FORM_ENDPOINTS.contact, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to submit message to the contact desk. Please try again.');
+      }
+
+      // Also store record locally for offline reference & text download
       const rfqRecord = {
         rfqId,
         timestamp,
@@ -110,9 +150,13 @@ export const ContactRfqPage: React.FC<ContactRfqPageProps> = ({
         console.error(err);
       }
 
-      setIsSubmitting(false);
       setSubmittedRfq({ id: rfqId, timestamp });
-    }, 700);
+    } catch (err: any) {
+      console.error('Formspree submission error:', err);
+      setSubmitError(err.message || 'An error occurred while sending your inquiry. Please check your connection or contact our desk directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDownloadRfqSummary = () => {
@@ -207,20 +251,26 @@ to ${businessEmail} within 12–24 business hours.
               {submittedRfq ? (
                 /* Success Confirmation */
                 <div className="text-center py-12 space-y-6">
+                  {/* Formspree / User Success Notification Banner */}
+                  <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center justify-center gap-2 max-w-lg mx-auto shadow-xs">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <span>Thank you! Your inquiry has been sent successfully.</span>
+                  </div>
+
                   <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-inner">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
 
                   <div>
                     <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 block mb-1">
-                      Inquiry Dispatched Successfully
+                      Inquiry Dispatched Successfully via Formspree
                     </span>
                     <h2 className="text-3xl font-extrabold text-slate-900 font-['Space_Grotesk']">
                       RFQ Reference: {submittedRfq.id}
                     </h2>
                     <p className="text-sm text-slate-600 max-w-lg mx-auto mt-2">
                       Thank you, <strong className="text-slate-800">{fullName || companyName}</strong>. 
-                      Your inquiry has been received directly by our export desk led by CEO <strong>{COMPANY_INFO.ceo}</strong> in Gujranwala, Punjab, Pakistan. We are calculating current vessel rates to <strong>{destinationPort}</strong> under <strong>{incoterm}</strong> terms.
+                      Your inquiry has been received directly by our export desk led by CEO <strong>{COMPANY_INFO.ceo}</strong> at Head Office: Jhelum, Pakistan. We are calculating current vessel rates to <strong>{destinationPort}</strong> under <strong>{incoterm}</strong> terms.
                     </p>
                   </div>
 
@@ -264,7 +314,19 @@ to ${businessEmail} within 12–24 business hours.
                 </div>
               ) : (
                 /* Inquiry Form */
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form
+                  action={FORM_ENDPOINTS.contact}
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-8"
+                >
+                  {/* Formspree Core Hidden Fields */}
+                  <input type="hidden" name="product_category" value="Himalayan Rock Salt & Minerals / Agro Products" />
+                  <input type="hidden" name="product_variant" value={selectedVariants.join(', ')} />
+                  <input type="hidden" name="volume" value={`${volume} ${volumeUnit}`} />
+                  <input type="hidden" name="shipment_timeline" value={timeline} />
+                  <input type="hidden" name="sample_required" value={sampleRequired ? 'Yes' : 'No'} />
+                  <input type="hidden" name="oem_branding_required" value={oemBrandingRequired ? 'Yes' : 'No'} />
                   
                   {/* Step 1: Product Selection */}
                   <div className="space-y-3">
@@ -278,14 +340,25 @@ to ${businessEmail} within 12–24 business hours.
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
+                        // 1. Himalayan Pink Salt Products
                         'Edible Himalayan Pink Salt (Fine Table 0.5-1.0mm)',
                         'Edible Himalayan Pink Salt (Coarse Grinder 2.5-5.0mm)',
-                        'Handcrafted Himalayan Salt Lamps (2-5kg Natural Rough)',
-                        'Geometric Himalayan Salt Lamps & Fire Bowls',
-                        'Animal & Livestock Rock Salt Lick Blocks (2.5-5kg)',
+                        'Handcrafted Himalayan Salt Lamps & Decor (2-10kg)',
+                        'Himalayan Salt Cooking Tiles, Slabs & Bricks',
+                        'Animal & Livestock Salt Lick Blocks (2.5-5kg with Rope)',
                         'Therapeutic Spa & Bath Pink Crystals',
-                        'Kinnow Mandarins & Citrus (Pre-Season Contract)',
-                        'Custom Specification / Special Mineral Grade'
+                        // 2. Fresh Agricultural Produce
+                        'Fresh Whole White Garlic (NARC-G1 Export Grade)',
+                        'Bold Fresh Ginger Rhizomes (Washed / Unwashed)',
+                        'Fresh Organic Purple-Top Turnips',
+                        'Export Red Onions & Potatoes (Mozika / Asterix)',
+                        'Pungent Green & Red Hot Chillies',
+                        // 3. Surgical & Dental Instruments
+                        'Orthopedic & Dental Extraction Tool Sets',
+                        'Hemostatic Forceps & Artery Clamps (Box-Joint)',
+                        'Surgical Scalpels & Tissue Retractors',
+                        'Tungsten Carbide (TC) Needle Holders',
+                        'Mayo & Metzenbaum Dissecting Scissors'
                       ].map((item) => {
                         const isChecked = selectedVariants.includes(item);
                         return (
@@ -326,6 +399,7 @@ to ${businessEmail} within 12–24 business hours.
                         <div className="flex gap-2">
                           <input
                             type="number"
+                            name="volume_qty"
                             min="1"
                             required
                             value={volume}
@@ -333,6 +407,7 @@ to ${businessEmail} within 12–24 business hours.
                             className="w-1/2 px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20 font-semibold"
                           />
                           <select
+                            name="volume_unit"
                             value={volumeUnit}
                             onChange={(e) => setVolumeUnit(e.target.value)}
                             className="w-1/2 px-3 py-2.5 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20 font-medium"
@@ -352,6 +427,7 @@ to ${businessEmail} within 12–24 business hours.
                           Preferred Trade Incoterm *
                         </label>
                         <select
+                          name="incoterm"
                           value={incoterm}
                           onChange={(e) => setIncoterm(e.target.value as any)}
                           className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -371,6 +447,7 @@ to ${businessEmail} within 12–24 business hours.
                           Discharge Port of Destination *
                         </label>
                         <select
+                          name="destination_port"
                           value={destinationPort}
                           onChange={(e) => setDestinationPort(e.target.value)}
                           className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -389,6 +466,7 @@ to ${businessEmail} within 12–24 business hours.
                           Packaging Specification *
                         </label>
                         <select
+                          name="packaging"
                           value={packagingPreference}
                           onChange={(e) => setPackagingPreference(e.target.value)}
                           className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -409,6 +487,7 @@ to ${businessEmail} within 12–24 business hours.
                           Target Shipment Window
                         </label>
                         <select
+                          name="shipment_timeline"
                           value={timeline}
                           onChange={(e) => setTimeline(e.target.value)}
                           className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/20"
@@ -424,6 +503,7 @@ to ${businessEmail} within 12–24 business hours.
                         <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
                           <input
                             type="checkbox"
+                            name="oem_branding"
                             checked={oemBrandingRequired}
                             onChange={(e) => setOemBrandingRequired(e.target.checked)}
                             className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
@@ -434,6 +514,7 @@ to ${businessEmail} within 12–24 business hours.
                         <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
                           <input
                             type="checkbox"
+                            name="sample_required"
                             checked={sampleRequired}
                             onChange={(e) => setSampleRequired(e.target.checked)}
                             className="rounded border-slate-300 text-orange-600 focus:ring-orange-500"
@@ -458,6 +539,7 @@ to ${businessEmail} within 12–24 business hours.
                         </label>
                         <input
                           type="text"
+                          name="full_name"
                           required
                           placeholder="e.g. Marcus Weber"
                           value={fullName}
@@ -472,6 +554,7 @@ to ${businessEmail} within 12–24 business hours.
                         </label>
                         <input
                           type="text"
+                          name="company_name"
                           required
                           placeholder="e.g. Weber Imports GmbH"
                           value={companyName}
@@ -488,6 +571,7 @@ to ${businessEmail} within 12–24 business hours.
                         </label>
                         <input
                           type="email"
+                          name="email"
                           required
                           placeholder="trade@company.com"
                           value={businessEmail}
@@ -502,6 +586,7 @@ to ${businessEmail} within 12–24 business hours.
                         </label>
                         <input
                           type="tel"
+                          name="whatsapp_phone"
                           placeholder="+49 40 1234567"
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
@@ -515,6 +600,7 @@ to ${businessEmail} within 12–24 business hours.
                         </label>
                         <input
                           type="text"
+                          name="country"
                           required
                           placeholder="e.g. Germany"
                           value={country}
@@ -530,6 +616,7 @@ to ${businessEmail} within 12–24 business hours.
                       </label>
                       <textarea
                         rows={3}
+                        name="special_instructions"
                         placeholder="Detail specific grain sizing (e.g. 0.2-0.8mm for table salt, 2-5mm for grinders), SGS pre-shipment inspection requests, or port requirements..."
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
@@ -538,15 +625,26 @@ to ${businessEmail} within 12–24 business hours.
                     </div>
                   </div>
 
+                  {/* Submission Error Banner */}
+                  {submitError && (
+                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <p className="font-semibold">Submission Notice</p>
+                        <p className="mt-0.5">{submitError}</p>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Submission CTA */}
                   <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-4 px-6 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                     >
                       {isSubmitting ? (
-                        <span>Processing Container Route &amp; Generating Proforma Quote...</span>
+                        <span>Transmitting to Formspree &amp; Export Desk...</span>
                       ) : (
                         <>
                           <span>Transmit Official RFQ to Utility Home Exports Desk</span>
@@ -621,17 +719,58 @@ to ${businessEmail} within 12–24 business hours.
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Globe2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                   <div>
                     <span className="font-semibold text-white block">WhatsApp Direct Desk:</span>
                     <a
-                      href={`https://wa.me/${COMPANY_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
+                      href={COMPANY_INFO.whatsappUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-emerald-400 hover:text-emerald-300 font-bold"
                     >
                       {COMPANY_INFO.whatsapp}
                     </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/utilityhome-export"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center text-white transition-colors shrink-0 shadow-sm"
+                    title="Official LinkedIn Profile"
+                    aria-label="Official LinkedIn Profile"
+                  >
+                    <i className="fa-brands fa-linkedin text-xl"></i>
+                  </a>
+                  <div>
+                    <span className="font-semibold text-white block">Official LinkedIn:</span>
+                    <a
+                      href="https://www.linkedin.com/in/utilityhome-export"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sky-400 hover:text-sky-300 text-xs font-semibold flex items-center gap-1"
+                    >
+                      <span>Connect on LinkedIn</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Compliance Box */}
+                <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] space-y-1.5 mt-2">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Registration:</span>
+                    <span className="text-emerald-400 font-semibold">FBR &amp; PSW Registered Exporter</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Chamber:</span>
+                    <span className="text-slate-200">Jhelum Chamber of Commerce (JCCI)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Halal Status:</span>
+                    <span className="text-emerald-400 font-semibold">Official Halal Certified</span>
                   </div>
                 </div>
               </div>
