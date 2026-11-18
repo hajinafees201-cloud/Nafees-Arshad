@@ -146,6 +146,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </span>
               </div>
               <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+                <span><strong className="text-slate-200">CEO Email:</strong>{' '}
+                  <a href="mailto:ceo@utilityexport.com" className="text-slate-300 hover:text-white transition-colors underline">
+                    ceo@utilityexport.com
+                  </a>
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span><strong className="text-slate-200">WhatsApp / Direct Call:</strong>{' '}
                   <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 font-semibold">

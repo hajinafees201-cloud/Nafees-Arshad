@@ -712,6 +712,16 @@ to ${businessEmail} within 12–24 business hours.
                 </div>
 
                 <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white block">CEO Email:</span>
+                    <a href="mailto:ceo@utilityexport.com" className="text-orange-300 hover:text-white transition-colors underline font-medium">
+                      ceo@utilityexport.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-400 shrink-0" />
                   <div>
                     <span className="font-semibold text-white block">Phone / Mobile Line:</span>
