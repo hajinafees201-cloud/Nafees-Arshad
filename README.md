@@ -2,8 +2,8 @@
 
 > **Official Global B2B Export Portal** · [utilityhomeexports.com](https://utilityhomeexports.com)  
 > **Headquarters**: Head Office: Jhelum, Pakistan  
-> **Executive Desk**: CEO Nafees Arshad · Mobile / WhatsApp: +92 300 6474593  
-> **Official Email**: Utilityhomeexport@gmail.com  
+> **Executive Desk**: CEO Nafees Arshad · Mobile / WhatsApp: +92 300 6474593 · Email: ceo@utilityexport.com  
+> **Official Email**: info@utilityexport.com  
 > **LinkedIn**: [linkedin.com/in/utilityhome-export](https://www.linkedin.com/in/utilityhome-export)
 
 ---

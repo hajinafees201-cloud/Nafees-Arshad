@@ -72,7 +72,7 @@ doc.text('Headquarters: Head Office: Jhelum, Pakistan', margin + 6, y + 20);
 doc.text('CEO / Executive: Nafees Arshad', margin + 6, y + 26);
 doc.text('Agro Belts: Punjab River Basins & Kunri, Pakistan', margin + 6, y + 32);
 
-doc.text('Direct Email: hajinafees201@gmail.com', margin + 96, y + 14);
+doc.text('Direct Email: ceo@utilityexport.com', margin + 96, y + 14);
 doc.text('WhatsApp / Tel: +92 300 6474593', margin + 96, y + 20);
 doc.text('Export Seaports: Karachi Port (PKKHI) & Port Qasim', margin + 96, y + 26);
 doc.text('Commercial Incoterms: FOB Karachi / CIF Destination Ports', margin + 96, y + 32);
@@ -158,7 +158,7 @@ doc.setFontSize(7.5);
 doc.setTextColor(71, 85, 105);
 doc.text('Container bookings via 40ft High Cube Reefer (28-30 MT) with active temperature loggers. Port of loading: Karachi (PKKHI).', margin, y);
 y += 4;
-doc.text('Direct contact: CEO Nafees Arshad · Mobile/WhatsApp: +92 300 6474593 · Email: hajinafees201@gmail.com', margin, y);
+doc.text('Direct contact: CEO Nafees Arshad · Mobile/WhatsApp: +92 300 6474593 · Email: ceo@utilityexport.com', margin, y);
 
 // Footer
 doc.setFillColor(248, 250, 252);
@@ -168,7 +168,7 @@ doc.line(0, pageHeight - 12, pageWidth, pageHeight - 12);
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(7);
 doc.setTextColor(71, 85, 105);
-doc.text('Utility Home Exports · Head Office: Jhelum, Pakistan · CEO: Nafees Arshad · Utilityhomeexport@gmail.com', margin, pageHeight - 4.5);
+doc.text('Utility Home Exports · Head Office: Jhelum, Pakistan · CEO: Nafees Arshad · info@utilityexport.com', margin, pageHeight - 4.5);
 doc.text('Official Export Catalog · Fresh Produce Division', pageWidth - margin, pageHeight - 4.5, { align: 'right' });
 
 const pdfBuffer = Buffer.from(doc.output('arraybuffer'));

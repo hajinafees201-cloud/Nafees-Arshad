@@ -112,10 +112,10 @@ export function generateVegetablesPdfCatalog(): jsPDF {
   doc.text(`CEO / Executive: ${CATALOG_COMPANY_CREDENTIALS.ceo}`, col1X, yPos + 26);
   doc.text(`Agro Harvest Belts: Punjab River Basins & Kunri, Pakistan`, col1X, yPos + 32);
 
-  doc.text(`Direct Email: ${CATALOG_COMPANY_CREDENTIALS.officialEmail}`, col2X, yPos + 14);
-  doc.text(`WhatsApp / Tel: ${CATALOG_COMPANY_CREDENTIALS.phoneWhatsApp}`, col2X, yPos + 20);
-  doc.text(`Export Seaports: Karachi Port (PKKHI) & Port Qasim (PKBQM)`, col2X, yPos + 26);
-  doc.text(`Commercial Incoterms: FOB Karachi / CIF Worldwide Destination Ports`, col2X, yPos + 32);
+  doc.text(`Direct Email: ${CATALOG_COMPANY_CREDENTIALS.ceoEmail}`, col2X, yPos + 14);
+  doc.text(`General Email: ${CATALOG_COMPANY_CREDENTIALS.officialEmail}`, col2X, yPos + 20);
+  doc.text(`WhatsApp / Tel: ${CATALOG_COMPANY_CREDENTIALS.phoneWhatsApp}`, col2X, yPos + 26);
+  doc.text(`Export Seaports: Karachi Port & Port Qasim`, col2X, yPos + 32);
 
   yPos += 45;
 

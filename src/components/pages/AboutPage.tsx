@@ -204,7 +204,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1">
               <span className="text-slate-400 block font-semibold">Chief Executive Officer:</span>
               <span className="text-white font-bold text-sm block">{COMPANY_INFO.ceo}</span>
-              <span className="text-slate-400 text-[11px] block">Head of International Trade</span>
+              <a href={`mailto:${COMPANY_INFO.ceoEmail}`} className="text-orange-400 hover:text-orange-300 text-[11px] block underline truncate">
+                {COMPANY_INFO.ceoEmail}
+              </a>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1">

@@ -967,7 +967,9 @@ export const VegetablesPage: React.FC<VegetablesPageProps> = ({
                     <div>
                       <span className="font-semibold text-white block">Contact Person / CEO:</span>
                       <span className="text-lime-300 font-bold text-sm">{COMPANY_INFO.ceo}</span>
-                      <span className="text-[11px] text-emerald-300 block mt-0.5">{COMPANY_INFO.designation}</span>
+                      <a href={`mailto:${COMPANY_INFO.ceoEmail}`} className="text-emerald-200 hover:text-white text-[11px] block mt-0.5 underline">
+                        {COMPANY_INFO.ceoEmail}
+                      </a>
                     </div>
                   </div>
 

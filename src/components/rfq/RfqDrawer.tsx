@@ -138,6 +138,7 @@ Company       : ${COMPANY_INFO.name} / ${COMPANY_INFO.legalName}
 CEO / Contact : ${COMPANY_INFO.ceo}
 Location      : ${COMPANY_INFO.headquarters}
 Contact Email : ${COMPANY_INFO.email}
+CEO Email     : ${COMPANY_INFO.ceoEmail}
 Phone/WhatsApp: ${COMPANY_INFO.whatsapp}
 Origin Loading: Port Qasim (PKBQM) / Karachi Port (PKKHI), Pakistan
 

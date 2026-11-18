@@ -480,7 +480,7 @@ export function generatePinkSaltPdfCatalog(): jsPDF {
     yPos + 14
   );
   doc.text(
-    `Official Email: ${COMPANY_INFO.email} | WhatsApp: ${COMPANY_INFO.whatsapp} | Head Office: Jhelum, Pakistan`,
+    `Official Email: ${COMPANY_INFO.email} | CEO Desk: ${COMPANY_INFO.ceoEmail} | WhatsApp: ${COMPANY_INFO.whatsapp}`,
     margin + 6,
     yPos + 20
   );

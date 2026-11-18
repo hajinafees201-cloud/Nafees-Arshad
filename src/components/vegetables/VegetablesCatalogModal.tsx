@@ -209,7 +209,9 @@ export const VegetablesCatalogModal: React.FC<VegetablesCatalogModalProps> = ({
                   </div>
                   <div className="text-emerald-200 flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-lime-400 shrink-0" />
-                    <span>{CATALOG_COMPANY_CREDENTIALS.officialEmail}</span>
+                    <a href={`mailto:${CATALOG_COMPANY_CREDENTIALS.ceoEmail}`} className="hover:text-white underline">
+                      {CATALOG_COMPANY_CREDENTIALS.ceoEmail}
+                    </a>
                   </div>
                   <div className="text-emerald-200 flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-lime-400 shrink-0" />

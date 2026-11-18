@@ -64,6 +64,7 @@ COMMERCIAL TERMS:
 - Incoterms: FOB Karachi / Port Qasim / CIF Worldwide Discharge Ports / CFR / EXW
 - Minimum Order: 1 x 20ft/40ft FCL or Commercial Air Cargo Lots
 - Official Email: ${COMPANY_INFO.email}
+- CEO Direct Email: ${COMPANY_INFO.ceoEmail}
 - Direct WhatsApp / Phone: ${COMPANY_INFO.whatsapp}
 - LinkedIn: ${COMPANY_INFO.linkedinDisplay}
 ========================================================================
@@ -79,11 +80,18 @@ COMMERCIAL TERMS:
   };
 
   return (
-    <div className="relative bg-slate-950 text-white overflow-hidden">
-      {/* Background Subtle Gradient & Mesh Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,87,0.18),rgba(255,255,255,0))] pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl pointer-events-none" />
+    <div
+      className="relative bg-[#07162c] text-white overflow-hidden"
+      style={{
+        backgroundImage:
+          "linear-gradient(135deg, rgba(7, 22, 44, 0.88) 0%, rgba(11, 31, 59, 0.78) 55%, rgba(7, 22, 44, 0.88) 100%), url('/images/seaport_hero_banner.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Subtle Dark-Blue Atmospheric Radial Accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,87,0.14),rgba(7,22,44,0.25))] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 lg:pt-20 lg:pb-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

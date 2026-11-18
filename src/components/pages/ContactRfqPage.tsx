@@ -172,6 +172,7 @@ Company / Exporter : ${COMPANY_INFO.name} / ${COMPANY_INFO.legalName}
 Contact Person/CEO : ${COMPANY_INFO.ceo}
 Location / Address : ${COMPANY_INFO.headquarters}
 Corporate Email    : ${COMPANY_INFO.email}
+CEO Direct Email   : ${COMPANY_INFO.ceoEmail}
 Phone / WhatsApp   : ${COMPANY_INFO.whatsapp}
 Origin Loading     : Port Qasim (PKBQM) / Karachi Port (PKKHI), Pakistan
 
@@ -686,7 +687,9 @@ to ${businessEmail} within 12–24 business hours.
                   <div>
                     <span className="font-semibold text-white block">Contact Person / CEO:</span>
                     <span className="text-emerald-300 font-bold text-sm">{COMPANY_INFO.ceo}</span>
-                    <span className="text-[11px] text-slate-400 block mt-0.5">{COMPANY_INFO.designation}</span>
+                    <a href={`mailto:${COMPANY_INFO.ceoEmail}`} className="text-orange-300 hover:text-white text-[11px] block mt-0.5 underline">
+                      {COMPANY_INFO.ceoEmail}
+                    </a>
                   </div>
                 </div>
 

@@ -62,6 +62,7 @@ ${COMPANY_INFO.name} / ${COMPANY_INFO.legalName}
 Contact Person / CEO : ${COMPANY_INFO.ceo}
 Location / Address   : ${COMPANY_INFO.headquarters}
 Email                : ${COMPANY_INFO.email}
+CEO Direct Email     : ${COMPANY_INFO.ceoEmail}
 Phone / WhatsApp     : ${COMPANY_INFO.whatsapp}
 =================================================================
     `.trim();

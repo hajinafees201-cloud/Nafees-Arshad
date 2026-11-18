@@ -477,7 +477,7 @@ export function generateSurgicalPdfCatalog(): jsPDF {
     yPos + 14
   );
   doc.text(
-    `Official Corporate Email: ${COMPANY_INFO.email} | WhatsApp / Call: ${COMPANY_INFO.whatsapp}`,
+    `Official Email: ${COMPANY_INFO.email} | CEO Desk: ${COMPANY_INFO.ceoEmail} | WhatsApp: ${COMPANY_INFO.whatsapp}`,
     margin + 6,
     yPos + 20
   );
