@@ -6,64 +6,64 @@
 
   <!-- 1. Homepage -->
   <url>
-    <loc>https://utilityhomeexports.com/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- 2. Himalayan Pink Salt Products -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=category&amp;slug=himalayan-pink-salt</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=category&slug=himalayan-pink-salt</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- 3. Fresh Agricultural Produce / Vegetables -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=vegetables</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=vegetables</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- 4. Surgical & Dental Instruments -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=category&amp;slug=surgical-instruments</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=category&slug=surgical-instruments</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- 5. Commercial Logistics & Maritime Incoterms -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=logistics</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=logistics</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 6. Quality Assurance, Halal & ISO Compliance -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=certifications</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=certifications</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 7. Corporate Profile & About Us -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=about</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=about</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- 8. Request a Bulk Export Quotation (RFQ) & Contact -->
   <url>
-    <loc>https://utilityhomeexports.com/?page=contact</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>https://www.utilityexport.com/?page=contact</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
