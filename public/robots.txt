@@ -1,5 +1,5 @@
 # robots.txt for Utility Home Exports
-# https://utilityhomeexports.com/
+# https://www.utilityexport.com/
 
 User-agent: *
 Allow: /
@@ -34,4 +34,4 @@ User-agent: Applebot
 Allow: /
 
 # Sitemap Location
-Sitemap: https://utilityhomeexports.com/sitemap.xml
+Sitemap: https://www.utilityexport.com/sitemap.xml
