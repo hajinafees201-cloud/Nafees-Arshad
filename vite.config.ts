@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/', // اسے تبدیل کر کے '/' کر دیں
+    base: '/Nafees-Arshad/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
