@@ -32,15 +32,23 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Wholesale Himalayan Pink Salt Exporter | Utility Home',
     description: 'Bulk Khewra Himalayan pink salt from Pakistan: fine & coarse edible salt, salt lamps, animal licks, tiles, and spa salt for wholesale & private label.',
     keywords: 'wholesale Himalayan pink salt supplier, bulk pink salt exporter Pakistan, private label edible pink salt, Himalayan salt lamps wholesale, animal salt lick blocks',
-    canonicalPath: '/?page=category&slug=himalayan-pink-salt',
+    canonicalPath: '/himalayan-pink-salt',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'Product'
+  },
+  'category:surgical-dental-instruments': {
+    title: 'Surgical & Dental Instruments Exporter | Utility Home',
+    description: 'Precision stainless steel surgical and dental instruments from Pakistan for international B2B distributors, hospitals, and medical importers.',
+    keywords: 'surgical instruments exporter Pakistan, dental instruments wholesale, stainless steel surgical tools B2B, medical instruments supplier Pakistan',
+    canonicalPath: '/surgical-dental-instruments',
+    ogImage: '/images/surgical_hero_banner.jpg',
+    schemaType: 'MedicalDevice'
   },
   'category:surgical-instruments': {
     title: 'Surgical & Dental Instruments Exporter | Utility Home',
     description: 'Precision stainless steel surgical and dental instruments from Pakistan for international B2B distributors, hospitals, and medical importers.',
     keywords: 'surgical instruments exporter Pakistan, dental instruments wholesale, stainless steel surgical tools B2B, medical instruments supplier Pakistan',
-    canonicalPath: '/?page=category&slug=surgical-instruments',
+    canonicalPath: '/surgical-dental-instruments',
     ogImage: '/images/surgical_hero_banner.jpg',
     schemaType: 'MedicalDevice'
   },
@@ -48,7 +56,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Cutlery & Blades Exporter Pakistan | Utility Home',
     description: 'Durable export-grade cutlery, kitchen knives, and blades from Pakistan for wholesale distributors and international B2B buyers.',
     keywords: 'cutlery exporter Pakistan, wholesale knives supplier Pakistan, kitchen cutlery B2B export, Pakistan cutlery manufacturer',
-    canonicalPath: '/?page=category&slug=cutlery',
+    canonicalPath: '/cutlery',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'Product'
   },
@@ -56,7 +64,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Fresh Produce & Citrus Exporter Pakistan | Utility Home',
     description: 'Direct export of fresh Pakistani citrus, vegetables, and agricultural produce via air and sea freight for global wholesale importers.',
     keywords: 'fresh produce exporter Pakistan, citrus exporter Pakistan, fresh vegetables export Dubai, agricultural exporter Pakistan',
-    canonicalPath: '/?page=vegetables',
+    canonicalPath: '/fresh-vegetables',
     ogImage: '/images/garlic_bulbs_export.jpg',
     schemaType: 'Product'
   },
@@ -64,7 +72,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'About Utility Home Exports | Pakistan B2B Exporter',
     description: 'Learn about Utility Home Exports in Jhelum, Pakistan—sourcing Himalayan pink salt, fresh produce, citrus, cutlery, and surgical instruments for global B2B trade.',
     keywords: 'Utility Home Exports about, Pakistan export company Jhelum, B2B exporter Pakistan',
-    canonicalPath: '/?page=about',
+    canonicalPath: '/about',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'Organization'
   },
@@ -72,7 +80,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Export Logistics & Shipping Terms | Utility Home',
     description: 'Reliable sea and air freight logistics from Pakistan with transparent export documentation and B2B shipping support for international buyers.',
     keywords: 'export logistics Pakistan, FOB CIF shipping Pakistan, container export Pakistan',
-    canonicalPath: '/?page=logistics',
+    canonicalPath: '/logistics',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'WebPage'
   },
@@ -80,7 +88,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Export Compliance & Certifications | Utility Home',
     description: 'View registration, quality standards, and export compliance details for Utility Home Exports from Pakistan.',
     keywords: 'export compliance Pakistan, PSW FBR registered exporter, quality standards export Pakistan',
-    canonicalPath: '/?page=certifications',
+    canonicalPath: '/certifications',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'WebPage'
   },
@@ -88,7 +96,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     title: 'Contact Utility Home | Export Inquiries & Global B2B Supply',
     description: 'Contact Utility Home for B2B export inquiries, product specifications, pricing, and international trade communication from Pakistan.',
     keywords: 'request export quote Pakistan, B2B RFQ Himalayan pink salt, export inquiry Pakistan',
-    canonicalPath: '/?page=contact',
+    canonicalPath: '/contact',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'ContactPage'
   }
