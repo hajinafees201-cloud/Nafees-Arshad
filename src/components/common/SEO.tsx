@@ -21,9 +21,9 @@ const BRAND_NAME = COMPANY_INFO?.name || 'Utility Home Exports';
 
 const PAGE_METADATA: Record<string, PageMeta> = {
   home: {
-    title: 'Utility Home Exports | Himalayan Pink Salt & B2B Exporter',
-    description: 'Direct B2B exporter from Pakistan supplying wholesale Himalayan pink salt, fresh produce, and surgical instruments. Request a B2B quote today.',
-    keywords: 'Pakistan exporter, wholesale Himalayan pink salt supplier, fresh produce exporter Pakistan, surgical instruments exporter Pakistan, B2B supplier Pakistan',
+    title: 'Utility Home | Himalayan Pink Salt, Produce & Cutlery Exporter',
+    description: 'Direct B2B exporter from Pakistan supplying Himalayan pink salt, fresh vegetables, citrus, cutlery, and surgical instruments to global buyers.',
+    keywords: 'Pakistan exporter, Himalayan pink salt supplier, fresh vegetables exporter Pakistan, citrus exporter Pakistan, cutlery exporter Pakistan, surgical instruments exporter Pakistan, B2B supplier Pakistan',
     canonicalPath: '/',
     ogImage: '/images/pink_salt_banner.jpg',
     schemaType: 'Corporation'
@@ -44,6 +44,14 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     ogImage: '/images/surgical_hero_banner.jpg',
     schemaType: 'MedicalDevice'
   },
+  'category:cutlery': {
+    title: 'Cutlery & Blades Exporter Pakistan | Utility Home',
+    description: 'Durable export-grade cutlery, kitchen knives, and blades from Pakistan for wholesale distributors and international B2B buyers.',
+    keywords: 'cutlery exporter Pakistan, wholesale knives supplier Pakistan, kitchen cutlery B2B export, Pakistan cutlery manufacturer',
+    canonicalPath: '/?page=category&slug=cutlery',
+    ogImage: '/images/pink_salt_banner.jpg',
+    schemaType: 'Product'
+  },
   vegetables: {
     title: 'Fresh Produce & Citrus Exporter Pakistan | Utility Home',
     description: 'Direct export of fresh Pakistani citrus, vegetables, and agricultural produce via air and sea freight for global wholesale importers.',
@@ -54,7 +62,7 @@ const PAGE_METADATA: Record<string, PageMeta> = {
   },
   about: {
     title: 'About Utility Home Exports | Pakistan B2B Exporter',
-    description: 'Learn about Utility Home Exports in Jhelum, Pakistan—sourcing Himalayan pink salt, agricultural produce, and surgical instruments for global B2B trade.',
+    description: 'Learn about Utility Home Exports in Jhelum, Pakistan—sourcing Himalayan pink salt, fresh produce, citrus, cutlery, and surgical instruments for global B2B trade.',
     keywords: 'Utility Home Exports about, Pakistan export company Jhelum, B2B exporter Pakistan',
     canonicalPath: '/?page=about',
     ogImage: '/images/pink_salt_banner.jpg',
@@ -77,8 +85,8 @@ const PAGE_METADATA: Record<string, PageMeta> = {
     schemaType: 'WebPage'
   },
   contact: {
-    title: 'Request a B2B Export Quote | Utility Home Exports',
-    description: 'Send your RFQ for bulk Himalayan pink salt, fresh produce, or surgical instruments directly to our export desk.',
+    title: 'Contact Utility Home | Export Inquiries & Global B2B Supply',
+    description: 'Contact Utility Home for B2B export inquiries, product specifications, pricing, and international trade communication from Pakistan.',
     keywords: 'request export quote Pakistan, B2B RFQ Himalayan pink salt, export inquiry Pakistan',
     canonicalPath: '/?page=contact',
     ogImage: '/images/pink_salt_banner.jpg',
