@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/home/HeroSection';
@@ -25,10 +25,52 @@ import { WhatsAppFloatingButton } from './components/common/WhatsAppFloatingButt
 import { CustomerReviewsSection } from './components/home/CustomerReviewsSection';
 import { SEO } from './components/common/SEO';
 
+const getStateFromPath = (pathname: string): { page: PageView; slug: string } => {
+  const cleanPath = pathname.replace(/\/+$/, '') || '/';
+
+  if (cleanPath === '/fresh-vegetables' || cleanPath === '/vegetables') {
+    return { page: 'vegetables', slug: 'fresh-vegetables' };
+  }
+  if (cleanPath === '/about') {
+    return { page: 'about', slug: 'himalayan-pink-salt' };
+  }
+  if (cleanPath === '/logistics') {
+    return { page: 'logistics', slug: 'himalayan-pink-salt' };
+  }
+  if (cleanPath === '/certifications') {
+    return { page: 'certifications', slug: 'himalayan-pink-salt' };
+  }
+  if (cleanPath === '/contact') {
+    return { page: 'contact', slug: 'himalayan-pink-salt' };
+  }
+  if (cleanPath === '/himalayan-pink-salt') {
+    return { page: 'category', slug: 'himalayan-pink-salt' };
+  }
+  if (cleanPath === '/surgical-dental-instruments') {
+    return { page: 'category', slug: 'surgical-dental-instruments' };
+  }
+
+  return { page: 'home', slug: 'himalayan-pink-salt' };
+};
+
+const getPathForNavigation = (page: PageView, categorySlug?: string): string => {
+  if (categorySlug === 'fresh-vegetables' || page === 'vegetables') {
+    return '/fresh-vegetables';
+  }
+  if (page === 'category') {
+    return `/${categorySlug || 'himalayan-pink-salt'}`;
+  }
+  if (page === 'home') {
+    return '/';
+  }
+  return `/${page}`;
+};
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageView>('home');
-  const [selectedCategorySlug, setSelectedCategorySlug] = useState<string>('himalayan-pink-salt');
-  
+  const initialState = getStateFromPath(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState<PageView>(initialState.page);
+  const [selectedCategorySlug, setSelectedCategorySlug] = useState<string>(initialState.slug);
+
   // RFQ Basket state
   const [rfqItems, setRfqItems] = useState<RfqCartItem[]>([
     {
@@ -45,7 +87,7 @@ export default function App() {
   ]);
   const [isRfqDrawerOpen, setIsRfqDrawerOpen] = useState<boolean>(false);
   const [productForSpec, setProductForSpec] = useState<ProductVariant | null>(null);
-  
+
   // Notification toast
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -56,6 +98,17 @@ export default function App() {
     volume?: string;
   }>({});
 
+  useEffect(() => {
+    const handlePopState = () => {
+      const nextState = getStateFromPath(window.location.pathname);
+      setCurrentPage(nextState.page);
+      setSelectedCategorySlug(nextState.slug);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const showToast = (message: string) => {
     setToastMessage(message);
     setTimeout(() => {
@@ -64,7 +117,13 @@ export default function App() {
   };
 
   const handleNavigate = (page: PageView, categorySlug?: string) => {
+    const targetPath = getPathForNavigation(page, categorySlug);
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({}, '', targetPath);
+    }
+
     if (categorySlug === 'fresh-vegetables' || page === 'vegetables') {
+      setSelectedCategorySlug('fresh-vegetables');
       setCurrentPage('vegetables');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
