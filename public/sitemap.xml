@@ -6,12 +6,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.utilityexport.com/products</loc>
+    <loc>https://www.utilityexport.com/himalayan-pink-salt</loc>
     <lastmod>2026-11-21</lastmod>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.utilityexport.com/surgical-dental-instruments</loc>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.utilityexport.com/fresh-vegetables</loc>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.utilityexport.com/contact</loc>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.utilityexport.com/about</loc>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.utilityexport.com/logistics</loc>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.utilityexport.com/certifications</loc>
     <lastmod>2026-11-21</lastmod>
     <priority>0.6</priority>
   </url>
