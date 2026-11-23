@@ -61,7 +61,7 @@ export const VegetablesCatalogModal: React.FC<VegetablesCatalogModalProps> = ({
     : PAKISTANI_EXPORT_VEGETABLES.filter(item => item.id === activeItemFilter);
 
   const whatsappMessage = encodeURIComponent(
-    `Hello CEO Nafees Arshad (Utility Home Exports, Jhelum). I reviewed your Fresh Vegetables Export Catalog (Garlic, Ginger, Red Onions, Potatoes, Chillies, Turnips, Carrots) and would like to request FOB/CIF price quotes for bulk reefer container shipments.`
+    `Hello CEO Nafees Arshad (Utility Home Exports, Jhelum). I reviewed your Fresh Vegetables Export Catalog (Garlic, Ginger, Red Onions, Potatoes, Chillies, Turnips, Carrots, Okra, Bitter Gourd) and would like to request FOB/CIF price quotes for bulk reefer container shipments.`
   );
 
   return (
@@ -87,7 +87,7 @@ export const VegetablesCatalogModal: React.FC<VegetablesCatalogModalProps> = ({
                   Official Export Catalog
                 </span>
                 <span className="text-xs text-emerald-300 font-medium hidden sm:inline">
-                  7 In-Season Pakistani Commodities
+                  {PAKISTANI_EXPORT_VEGETABLES.length} In-Season Pakistani Commodities
                 </span>
               </div>
               <h2 className="text-base sm:text-lg font-bold font-['Space_Grotesk'] text-white">
@@ -149,7 +149,7 @@ export const VegetablesCatalogModal: React.FC<VegetablesCatalogModalProps> = ({
                   : 'text-slate-600 hover:bg-stone-200'
               }`}
             >
-              All 7 Commodities
+              All {PAKISTANI_EXPORT_VEGETABLES.length} Commodities
             </button>
             {PAKISTANI_EXPORT_VEGETABLES.map((item) => (
               <button
@@ -256,7 +256,7 @@ export const VegetablesCatalogModal: React.FC<VegetablesCatalogModalProps> = ({
               </p>
             </div>
 
-            {/* 3. PRODUCT CATALOG ITEMS (7 SEASONAL COMMODITIES) */}
+            {/* 3. PRODUCT CATALOG ITEMS (9 SEASONAL COMMODITIES) */}
             <div className="space-y-8">
               <div className="flex items-center justify-between border-b border-stone-200 pb-2">
                 <h2 className="text-lg sm:text-xl font-bold font-['Space_Grotesk'] text-slate-900 flex items-center gap-2">

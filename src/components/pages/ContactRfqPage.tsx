@@ -354,6 +354,8 @@ to ${businessEmail} within 12–24 business hours.
                         'Fresh Organic Purple-Top Turnips',
                         'Export Red Onions & Potatoes (Mozika / Asterix)',
                         'Pungent Green & Red Hot Chillies',
+                        'Fresh Green Okra (Lady Finger / Bhindi)',
+                        'Fresh Bitter Gourd (Karela / Bitter Melon)',
                         // 3. Surgical & Dental Instruments
                         'Orthopedic & Dental Extraction Tool Sets',
                         'Hemostatic Forceps & Artery Clamps (Box-Joint)',

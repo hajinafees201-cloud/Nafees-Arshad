@@ -317,7 +317,8 @@ export function generateVegetablesPdfCatalog(): jsPDF {
   renderProductCard(PAKISTANI_EXPORT_VEGETABLES[5], yPos); // Fresh Turnips
 
   // ==========================================
-  // PAGE 4: DETAILED SPECS - ITEM 7 (Carrots) & COMMERCIAL INSTRUCTIONS
+  // PAGE 4: DETAILED SPECS - ITEMS 7 to 9
+  // (Carrots, Okra, Bitter Gourd)
   // ==========================================
   doc.addPage();
   yPos = 22;
@@ -325,11 +326,24 @@ export function generateVegetablesPdfCatalog(): jsPDF {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(13);
   doc.setTextColor(...colors.darkGreen);
-  doc.text('TECHNICAL EXPORT SPECIFICATIONS & COMMERCIAL PROTOCOLS', margin, yPos);
+  doc.text('TECHNICAL EXPORT SPECIFICATIONS · SECTION 3', margin, yPos);
   yPos += 6;
 
   yPos += renderProductCard(PAKISTANI_EXPORT_VEGETABLES[6], yPos); // Carrots
-  yPos += 4;
+  yPos += renderProductCard(PAKISTANI_EXPORT_VEGETABLES[7], yPos); // Fresh Green Okra (Bhindi)
+  renderProductCard(PAKISTANI_EXPORT_VEGETABLES[8], yPos); // Bitter Gourd (Karela)
+
+  // ==========================================
+  // PAGE 5: COMMERCIAL PROTOCOLS & DIRECT ORDERING
+  // ==========================================
+  doc.addPage();
+  yPos = 22;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(13);
+  doc.setTextColor(...colors.darkGreen);
+  doc.text('COMMERCIAL EXPORT PROTOCOLS & COLD-CHAIN TERMS', margin, yPos);
+  yPos += 6;
 
   // Commercial Shipping Terms Box
   doc.setFillColor(248, 250, 252);

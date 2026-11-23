@@ -189,6 +189,60 @@ export const VEGETABLE_PRODUCTS: VegetableProduct[] = [
       { label: 'Shipping Terms', value: 'FOB Karachi Port / CIF Middle East & GCC Ports' }
     ],
     imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    id: 'veg-fresh-okra',
+    name: 'Fresh Green Okra (Lady Finger / Bhindi)',
+    botanicalName: 'Abelmoschus esculentus (تازہ بھنڈی)',
+    variety: 'Sabz Pari, Arka Anamika & Tender Five-Ridge Export Grade',
+    category: 'Fruit & Pod Vegetables',
+    hsCode: '0709.99.90',
+    origin: 'Punjab Fertile Plains & Sindh River Corridors, Pakistan',
+    seasonality: 'March to November (Extended Summer & Monsoon Crop)',
+    packagingOptions: [
+      '4kg & 5kg Ventilated Telescopic Corrugated Master Cartons',
+      '5kg Breathable Air-Cooled Plastic Crates with protective paper liners',
+      'Food-Grade Micro-Perforated Punnets (250g / 500g) inside air cargo boxes'
+    ],
+    shelfLife: '10 to 14 Days under unbroken chilled chain (+7°C to +10°C)',
+    storageTemp: '+7°C to +10°C / 90–95% RH (Chilled, Anti-Chilling Injury)',
+    shippingMode: 'Commercial Air Cargo Flights / Expedited Gulf Reefer',
+    moq: '1,000 kg (Commercial Air Cargo) or 1 x 20ft/40ft Reefer',
+    description: 'Tender, young, dark emerald-green Pakistani okra pods harvested at peak freshness before fibrous hardening. Hand-sorted for crisp snap, intact calyx stems, soft non-woody seeds, and zero bruising for rapid air freight to UK, EU, and GCC supermarkets.',
+    keySpecs: [
+      { label: 'Pod Length / Grade', value: '6cm–9cm (Tender Baby), 9cm–12cm (Standard Export Grade)' },
+      { label: 'Harvest & Pre-Cooling', value: 'Handpicked early morning & forced-air cooled within 3 hours' },
+      { label: 'Texture & Pod State', value: 'Bright dark-green glossy ridges, 100% snapping tender pods' },
+      { label: 'Shipping Terms', value: 'FOB Karachi / Air CFR London, Gulf & EU Airports / CIF' }
+    ],
+    imageUrl: '/images/fresh_okra_export.jpg'
+  },
+  {
+    id: 'veg-bitter-gourd',
+    name: 'Fresh Bitter Gourd (Karela / Bitter Melon)',
+    botanicalName: 'Momordica charantia (تازہ کریلا)',
+    variety: 'Desi Green Long Karela & Faisalabad Hybrid Dark Emerald',
+    category: 'Gourds & Vine Vegetables',
+    hsCode: '0709.99.90',
+    origin: 'Jhelum, Faisalabad & Central Punjab Agro Belts, Pakistan',
+    seasonality: 'March to October (Peak Spring & Summer Harvest)',
+    packagingOptions: [
+      '5kg & 8kg Ventilated Corrugated Export Master Cartons',
+      '10kg Breathable Stackable Plastic Export Crates',
+      'Air Cargo Insulated Pallet Cartons with moisture-absorbent sheets'
+    ],
+    shelfLife: '14 to 21 Days at +10°C to +12°C (85–90% RH)',
+    storageTemp: '+10°C to +12°C / 85–90% RH (Chilled Ventilated Chain)',
+    shippingMode: 'Commercial Air Cargo Flights / 40ft Reefer (GCC & UK)',
+    moq: '1,000 kg (Commercial Air Cargo) or 1 x 20ft/40ft Reefer',
+    description: 'Firm, deeply ridged Pakistani green bitter gourds (Karela) renowned for authentic bitter-tonic richness, glossy emerald-green tubercles, and dense crisp flesh. Graded for uniform size and zero yellowing, packed in ventilated boxes for UK, GCC, and international specialty supermarkets.',
+    keySpecs: [
+      { label: 'Fruit Size & Weight', value: '14cm–22cm Length | 80g–150g per firm unyellowed gourd' },
+      { label: 'Maturity & Skin', value: 'Harvested crisp emerald-green, zero overripe orange seeds' },
+      { label: 'Cold-Chain Handling', value: 'Pre-cooled to +11°C to prevent chilling injury & dehydration' },
+      { label: 'Shipping Terms', value: 'FOB Karachi / Air CFR UK, Dubai, Doha & European Hubs' }
+    ],
+    imageUrl: '/images/bitter_gourd_export.jpg'
   }
 ];
 
@@ -248,6 +302,22 @@ export const VEGETABLE_SPECS_TABLE = [
     packaging: '10kg PE Liner Master Cartons & Crates',
     storageTemp: '0°C to +1°C (95–98% RH)',
     shippingMode: '40ft Reefer Container (26–28 MT)'
+  },
+  {
+    name: 'Fresh Green Okra (Lady Finger / Bhindi)',
+    botanical: 'Abelmoschus esculentus (تازہ بھنڈی)',
+    origin: 'Punjab & Sindh Agro Belts, Pakistan',
+    packaging: '4kg, 5kg Ventilated Cartons & Punnets',
+    storageTemp: '+7°C to +10°C (90–95% RH)',
+    shippingMode: 'Air Cargo Flights / Fast Reefer'
+  },
+  {
+    name: 'Fresh Bitter Gourd (Karela)',
+    botanical: 'Momordica charantia (تازہ کریلا)',
+    origin: 'Jhelum & Central Punjab, Pakistan',
+    packaging: '5kg, 8kg Ventilated Cartons & Crates',
+    storageTemp: '+10°C to +12°C (85–90% RH)',
+    shippingMode: 'Air Cargo Flights / Fast Reefer'
   }
 ];
 

@@ -222,7 +222,7 @@ export const VegetablesPage: React.FC<VegetablesPageProps> = ({
                 <button
                   onClick={handleOpenCatalog}
                   className="px-5 py-3.5 rounded-xl bg-emerald-900/90 hover:bg-emerald-800 border-2 border-lime-400 text-white font-bold text-sm shadow-xl hover:shadow-lime-500/25 transition-all flex items-center gap-2.5 cursor-pointer backdrop-blur-xs group"
-                  title="View and download complete 7-item Pakistani vegetable export catalog"
+                  title="View and download complete 9-item Pakistani vegetable export catalog"
                 >
                   <div className="w-6 h-6 rounded-lg bg-lime-500/20 flex items-center justify-center text-lime-300 group-hover:bg-lime-400 group-hover:text-slate-950 transition-colors">
                     <FileText className="w-4 h-4" />
@@ -343,7 +343,7 @@ export const VegetablesPage: React.FC<VegetablesPageProps> = ({
               </h2>
 
               <p className="text-sm text-emerald-100/90 leading-relaxed">
-                Download or preview our verified export specification dossier featuring <strong>7 in-season, high-demand Pakistani export vegetables</strong>: Fresh Whole White Garlic (NARC-G1), Fresh Ginger Rhizomes, Export Red Onions, Potatoes (Mozika, Asterix, Lady Rosetta), High-Pungency Green &amp; Red Chillies, and Seasonal Fresh Turnips &amp; Sweet Red Carrots.
+                Download or preview our verified export specification dossier featuring <strong>9 in-season, high-demand Pakistani export vegetables</strong>: Fresh Whole White Garlic (NARC-G1), Fresh Ginger Rhizomes, Export Red Onions, Potatoes (Mozika, Asterix, Lady Rosetta), High-Pungency Green &amp; Red Chillies, Fresh Turnips, Sweet Red Carrots, Fresh Green Okra (Bhindi), and Bitter Gourd (Karela).
               </p>
 
               {/* Key Highlights Grid */}

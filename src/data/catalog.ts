@@ -546,6 +546,84 @@ export const CATEGORIES: Category[] = [
           'Oleoresin capsaicin extraction industries'
         ],
         imageUrl: '/images/seasonal_veg_herbs.jpg'
+      },
+      {
+        id: 'veg-okra',
+        name: 'Fresh Green Okra (Lady Finger / Bhindi)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'pods',
+        tagline: 'Tender, Dark-Green Five-Ridge Pakistani Okra Harvested Daily for Air & Sea Freight',
+        description: 'Tender, young, dark emerald-green Pakistani okra pods harvested at peak freshness before fibrous hardening. Hand-sorted for crisp snap, intact calyx stems, soft non-woody seeds, and zero bruising for rapid air freight and Gulf cold-chain routes.',
+        hsCode: '0709.99.90',
+        moq: '1,000 kg (Commercial Air Cargo) or 1 x 20ft/40ft Reefer',
+        grainSizes: [
+          'Baby Tender Grade: 6cm - 9cm pod length',
+          'Standard Export Grade: 9cm - 12cm pod length',
+          'Strict Sorting: Zero woody pods, clean trimmed stems'
+        ],
+        colorGrades: ['Deep Emerald Green', 'Vibrant Natural Green'],
+        certifications: ['DPP Phytosanitary Certificate', 'MRL Residue Cleared', 'GlobalGAP Compliant', 'HACCP'],
+        packagingOptions: [
+          '4kg & 5kg Ventilated Telescopic Corrugated Master Cartons',
+          '5kg Breathable Air-Cooled Plastic Crates with liners',
+          'Micro-Perforated 250g / 500g retail punnets inside master cartons'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '6–8 MT Reefer / Air Pallets',
+          fortyFtFcl: '12–16 MT in 40ft Reefer (+7°C to +10°C)',
+          palletized: 'Air Cargo LD3 / PMC Cool-Chain Pallets'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '+7°C to +10°C / 90–95% RH' },
+          { label: 'Pod Maturity', value: 'Soft tender seeds, crisp snap, zero fiber hardening' },
+          { label: 'Pre-Cooling', value: 'Forced-air cooled within 3 hours of morning picking' },
+          { label: 'Shelf Life', value: '10 to 14 Days in unbroken cold chain' }
+        ],
+        applications: [
+          'International fresh grocery and ethnic supermarket chains',
+          'Commercial foodservice, hospitality, and restaurant supply',
+          'IQF frozen cut okra industrial food processing'
+        ],
+        imageUrl: '/images/fresh_okra_export.jpg'
+      },
+      {
+        id: 'veg-bitter-gourd',
+        name: 'Fresh Bitter Gourd (Karela / Bitter Melon)',
+        categorySlug: 'fresh-vegetables',
+        subcategory: 'gourds',
+        tagline: 'Deeply Ridged Glossy Emerald Pakistani Karela with Dense Crisp Flesh',
+        description: 'Firm, deeply ridged Pakistani green bitter gourds (Karela) renowned for authentic bitter-tonic richness, glossy emerald-green tubercles, and dense crisp flesh. Graded for uniform size and zero yellowing for UK, GCC, and international specialty supermarkets.',
+        hsCode: '0709.99.90',
+        moq: '1,000 kg (Commercial Air Cargo) or 1 x 20ft/40ft Reefer',
+        grainSizes: [
+          'Medium Export Grade: 14cm - 18cm (80g - 110g)',
+          'Large Commercial Grade: 18cm - 22cm (110g - 150g)',
+          'Skin State: Crisp unyellowed emerald ridges'
+        ],
+        colorGrades: ['Dark Emerald Green', 'Bright Leaf Green'],
+        certifications: ['DPP Phytosanitary Certificate', 'MRL Residue Cleared', 'ISO 22000 (HACCP)'],
+        packagingOptions: [
+          '5kg & 8kg Ventilated Corrugated Export Master Cartons',
+          '10kg Breathable Stackable Plastic Export Crates',
+          'Air Cargo Insulated Pallet Cartons with protective liners'
+        ],
+        containerStuffing: {
+          twentyFtFcl: '8–9 MT Reefer / Air Freight Lots',
+          fortyFtFcl: '16–18 MT in 40ft Reefer (+10°C to +12°C)',
+          palletized: 'Ventilated export cartons strapped on ISPM-15 pallets'
+        },
+        keySpecs: [
+          { label: 'Storage Temperature', value: '+10°C to +12°C / 85–90% RH' },
+          { label: 'Maturity Index', value: 'Harvested bright green, zero overripe orange seeds' },
+          { label: 'Cold-Chain Handling', value: 'Protected from chilling injury during transit' },
+          { label: 'Shelf Life', value: '14 to 21 Days in ventilated reefer chain' }
+        ],
+        applications: [
+          'South Asian, Middle Eastern, and European fresh produce retail',
+          'Nutraceutical bitter melon extract & herbal juice processing',
+          'Wholesale vegetable terminal distribution'
+        ],
+        imageUrl: '/images/bitter_gourd_export.jpg'
       }
     ],
     faqs: [

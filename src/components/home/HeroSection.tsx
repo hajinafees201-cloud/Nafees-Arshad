@@ -241,6 +241,12 @@ COMMERCIAL TERMS:
                       <option value="Pungent Green & Red Hot Chillies">
                         Hot Green &amp; Red Chillies - HS 0709
                       </option>
+                      <option value="Fresh Green Okra (Lady Finger / Bhindi)">
+                        Fresh Green Okra (Bhindi) - HS 0709
+                      </option>
+                      <option value="Fresh Bitter Gourd (Karela / Bitter Melon)">
+                        Fresh Bitter Gourd (Karela) - HS 0709
+                      </option>
                     </optgroup>
                     <optgroup label="3. Surgical & Dental Instruments">
                       <option value="Orthopedic & Dental Extraction Tool Sets">

@@ -179,6 +179,52 @@ export const PAKISTANI_EXPORT_VEGETABLES: VegetableCatalogItem[] = [
     description: 'Renowned Pakistani winter red carrots packed with natural lycopene, vibrant ruby-red color, and exceptional sweetness. Hydro-cooled immediately after harvest to preserve crispness for overseas shipment.',
     imageUrl: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=1200&q=80',
     inSeasonMonths: 'December to April (Winter Season)'
+  },
+  {
+    id: 'fresh-okra-bhindi',
+    name: 'Fresh Green Okra (Lady Finger / Bhindi)',
+    urduName: 'تازہ بھنڈی',
+    botanicalName: 'Abelmoschus esculentus',
+    variety: 'Sabz Pari, Arka Anamika & Tender Five-Ridge Export Grade',
+    hsCode: '0709.99.90',
+    origin: 'Punjab Fertile Plains & Sindh River Corridors, Pakistan',
+    availableSizes: 'Tender Baby: 6cm–9cm | Standard Export Grade: 9cm–12cm (Young Snapping Pods)',
+    dryingAndMoisture: 'Handpicked early morning before woody fiber sets; forced-air pre-cooled within 3 hours to preserve crisp snap and bright emerald color.',
+    shelfLife: '10 to 14 Days under unbroken chilled air & reefer chain (+7°C to +10°C)',
+    storageTemp: '+7°C to +10°C / 90–95% RH (Anti-Chilling Injury)',
+    packagingTypes: [
+      '4kg & 5kg Ventilated Telescopic Corrugated Master Cartons',
+      '5kg Breathable Air-Cooled Plastic Crates with paper liners',
+      'Micro-Perforated Food-Grade Punnets (250g / 500g) inside air master boxes'
+    ],
+    shippingTerms: 'FOB Karachi / Air CFR London, Gulf & EU Airports / CIF Maritime Reefer',
+    containerLoad: 'Air Cargo Shipments (1,000kg – 5,000kg) or 20ft/40ft Reefer (12–16 MT)',
+    description: 'Tender, young, dark emerald-green Pakistani okra pods harvested at peak freshness before fibrous hardening. Hand-sorted for crisp snap, intact calyx stems, soft seeds, and zero bruising.',
+    imageUrl: '/images/fresh_okra_export.jpg',
+    inSeasonMonths: 'March to November (Peak Summer & Monsoon Crop)'
+  },
+  {
+    id: 'bitter-gourd-karela',
+    name: 'Fresh Bitter Gourd (Karela / Bitter Melon)',
+    urduName: 'تازہ کریلا',
+    botanicalName: 'Momordica charantia',
+    variety: 'Desi Green Long Karela & Faisalabad Hybrid Dark Emerald',
+    hsCode: '0709.99.90',
+    origin: 'Jhelum, Faisalabad & Central Punjab Agro Belts, Pakistan',
+    availableSizes: 'Length: 14cm–22cm | Individual Weight: 80g–150g Firm Unyellowed Gourds',
+    dryingAndMoisture: 'Harvested at peak crisp green stage with intact bumpy ridges and zero premature yellowing; forced-air cooled to +11°C to prevent moisture loss.',
+    shelfLife: '14 to 21 Days under conditioned chilled storage (+10°C to +12°C)',
+    storageTemp: '+10°C to +12°C / 85–90% RH (Chilled Ventilated Chain)',
+    packagingTypes: [
+      '5kg & 8kg Ventilated Corrugated Export Master Cartons',
+      '10kg Breathable Stackable Plastic Export Crates',
+      'Air Cargo Insulated Pallet Cartons with moisture-absorbent sheets'
+    ],
+    shippingTerms: 'FOB Karachi / Air CFR UK, Dubai, Doha & European Hubs / CIF',
+    containerLoad: 'Air Cargo Shipments (1,000kg – 5,000kg) or 40ft Reefer (16–18 MT)',
+    description: 'Firm, deeply ridged Pakistani green bitter gourds (Karela) renowned for authentic bitter-tonic richness, glossy emerald-green tubercles, and dense crisp flesh for UK, GCC, and specialty retail markets.',
+    imageUrl: '/images/bitter_gourd_export.jpg',
+    inSeasonMonths: 'March to October (Spring & Summer Harvest)'
   }
 ];
 

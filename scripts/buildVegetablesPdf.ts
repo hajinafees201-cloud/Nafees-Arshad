@@ -97,11 +97,11 @@ doc.text(
 
 y += 24;
 
-// 7 Vegetables Specifications Table
+// 9 Vegetables Specifications Table
 doc.setFont('helvetica', 'bold');
 doc.setFontSize(11);
 doc.setTextColor(15, 23, 42);
-doc.text('7 IN-SEASON PAKISTANI EXPORT VEGETABLES', margin, y);
+doc.text('9 IN-SEASON PAKISTANI EXPORT VEGETABLES', margin, y);
 y += 5;
 
 const items = [
@@ -111,7 +111,9 @@ const items = [
   { name: '4. Fresh Potatoes (Mozika/Asterix/Rosetta)', hs: '0701.90.00', sizes: '35-45mm, 45-55mm, 55-80mm', pack: '10kg/25kg Mesh & 1T Jumbo Bins', terms: 'FOB / CIF' },
   { name: '5. Green Chillies & Red Chilli', hs: '0709.60.00', sizes: 'G4 Hot 6-10cm / Bullet 4-6cm', pack: '3kg/4kg/5kg Corrugated Master Boxes', terms: 'FOB / Air CFR' },
   { name: '6. Fresh Turnips (Seasonal Produce)', hs: '0706.90.00', sizes: '50-70mm, 70-90mm Caliber', pack: '5kg/10kg Corrugated Boxes / Mesh', terms: 'FOB / CIF' },
-  { name: '7. Fresh Carrots (Pakistani Red & Kuroda)', hs: '0706.10.00', sizes: 'Length 16-24cm, Dia 25-42mm', pack: '10kg PE Liner Cartons / Crates', terms: 'FOB / CIF' }
+  { name: '7. Fresh Carrots (Pakistani Red & Kuroda)', hs: '0706.10.00', sizes: 'Length 16-24cm, Dia 25-42mm', pack: '10kg PE Liner Cartons / Crates', terms: 'FOB / CIF' },
+  { name: '8. Fresh Green Okra (Lady Finger / Bhindi)', hs: '0709.99.90', sizes: '6-9cm Baby / 9-12cm Standard', pack: '4kg/5kg Cartons & Micro Punnets', terms: 'FOB / Air CFR' },
+  { name: '9. Fresh Bitter Gourd (Karela)', hs: '0709.99.90', sizes: '14-22cm / 80-150g Green Fruit', pack: '5kg/8kg Cartons & 10kg Crates', terms: 'FOB / Air CFR' }
 ];
 
 doc.setFillColor(71, 85, 105);
